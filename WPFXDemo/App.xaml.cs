@@ -18,10 +18,9 @@ namespace DXWPFApplication2
         {
             base.OnStartup(e);
 
-
-            // The boostrapper will create the Shell instance, so the App.xaml does not have a StartupUri.
-            //Bootstrapper bootstrapper = new Bootstrapper();
-            //bootstrapper.Run();
+            // The boostrapper will create the first Shell instance, so the App.xaml does not have a StartupUri.
+            Bootstrapper bootstrapper = new Bootstrapper();
+            bootstrapper.Run();
         }
 
         
