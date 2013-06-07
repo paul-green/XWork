@@ -70,7 +70,7 @@
                     <dxe:SpinEditSettings Name="spinEditSettings1" MinValue="8" MaxValue="30" Increment="1" MaskType="Numeric"  />
                 </dxb:BarEditItem.EditSettings>
             </dxb:BarEditItem>
-            <dxb:BarEditItem Content="Size" Name="barEditItem1" BarItemDisplayMode="Default" GlyphSize="Default" EditWidth="100">
+            <dxb:BarEditItem Content="Size" Name="barEditItem1" BarItemDisplayMode="Default" GlyphSize="Default" EditWidth="100" EditValueChanged="barEditItem1_EditValueChanged">
                 <dxb:BarEditItem.EditSettings>
                     <dxe:TrackBarEditSettings Name="trackBarEditSettings1" Minimum="8" Maximum="30" />
                 </dxb:BarEditItem.EditSettings>
@@ -115,6 +115,10 @@
             <dxb:BarButtonItem Content="Import" Name="barButtonItem2" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/14.png" />
             <dxb:BarButtonItem Content="Save As..." Name="barButtonItem3" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/19.png" />
             <dxb:BarButtonItem Content="Export Scheduled" Name="barButtonItem4" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/2.png" />
+            <dxb:BarCheckItem Content="Lock" Name="lockLayout" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/20.png" />
+            <dxb:BarButtonItem Content="Undo" Name="barButtonItem5" Glyph="/DXWPFApplication2;component/Images/Icons/undo-16x16.png" />
+            <dxb:BarButtonItem Content="Redo" Name="redo" Glyph="/DXWPFApplication2;component/Images/Icons/redo-16x16.png" />
+            <dxb:BarButtonItem Content="Today" Name="barButtonItem6" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/5.png" />
         </dxb:BarManager.Items>
         <DockPanel>
             <dxr:RibbonControl x:Name="ribbonControl1" RibbonStyle="Office2007" dxbh:BlendHelperForBarsAndRibbon.IsDesignControl="true" DockPanel.Dock="Top">
@@ -147,6 +151,8 @@
                 <dxr:RibbonControl.PageHeaderItemLinks>
                     <dxb:BarButtonItemLink BarItemName="bNew" />
                     <dxb:BarButtonItemLink BarItemName="bHelp" />
+                    <dxb:BarButtonItemLink BarItemName="barButtonItem5" />
+                    <dxb:BarButtonItemLink BarItemName="redo" />
                 </dxr:RibbonControl.PageHeaderItemLinks>
                 <dxr:RibbonDefaultPageCategory>
                     <dxr:RibbonPage Name="Home" Caption="Home">
@@ -172,6 +178,10 @@
                             <dxb:BarButtonItemLink BarItemName="barButtonItem2" />
                             <dxb:BarButtonItemLink BarItemName="barButtonItem4" />
                         </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Edit" Name="ribbonPageGroup5">
+                            <dxb:BarButtonItemLink BarItemName="barButtonItem5" />
+                            <dxb:BarButtonItemLink BarItemName="redo" />
+                        </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
                     <dxr:RibbonPage Name="RibbonViews" Caption="View">
                         <dxr:RibbonPageGroup Caption="Views" Name="OpenViews">
@@ -184,6 +194,7 @@
                         <dxr:RibbonPageGroup Caption="Layout" Name="ribbonPageGroup3">
                             <dxb:BarButtonItemLink BarItemName="btnCloseAllPanel" />
                             <dxb:BarSplitButtonItemLink BarItemName="barSplitButtonItem1" />
+                            <dxb:BarCheckItemLink BarItemName="lockLayout" />
                         </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
                     <dxr:RibbonPage Caption="Settings" Name="settings">
@@ -193,6 +204,12 @@
                         </dxr:RibbonPageGroup>
                         <dxr:RibbonPageGroup Caption="All" Name="settingsMain" />
                     </dxr:RibbonPage>
+                    <dxr:RibbonPage Caption="Filtering" Name="ribbonPage1">
+                        <dxr:RibbonPageGroup Caption="Dates" Name="ribbonPageGroup6">
+                            <dxb:BarButtonItemLink BarItemName="barButtonItem6" />
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Ribbon Page Group 7" Name="ribbonPageGroup7" />
+                    </dxr:RibbonPage>
                 </dxr:RibbonDefaultPageCategory>
                 <dxr:RibbonControl.ToolbarItemLinks>
                     <dxb:BarButtonItemLink BarItemName="bNew" />
@@ -200,29 +217,26 @@
                     <dxb:BarButtonItemLink BarItemName="bCopy" />
                     <dxb:BarButtonItemLink BarItemName="bPaste" />
                     <dxb:BarSubItemLink BarItemName="mmFile" />
+                    <dxb:BarButtonItemLink BarItemName="barButtonItem5" />
                 </dxr:RibbonControl.ToolbarItemLinks>
             </dxr:RibbonControl>
             <dxr:RibbonStatusBarControl Name="ribbonStatusBarControl1" DockPanel.Dock="Bottom" />
 
-            <dxd:DockLayoutManager x:Name="dockLayoutManager"  FloatingMode="Desktop">
+            <dxd:DockLayoutManager x:Name="dockLayoutManager"  FloatingMode="Desktop" Visibility="Visible">
                 <dxd:DockLayoutManager.LayoutRoot>
                     <dxd:LayoutGroup>
                         <dxd:LayoutGroup Orientation="Vertical">
                             <dxd:LayoutGroup Orientation="Horizontal">
                                 <dxd:LayoutPanel Caption="Baskets" Name="layoutPanel1" />
-                                <dxd:LayoutPanel Caption="1352 HOSUI" Name="DepthPanel">
-                           
-                                </dxd:LayoutPanel>
                             </dxd:LayoutGroup>
-                            <dxd:LayoutPanel Caption="Bloomberg News" Name="layoutPanel2">
+                            <dxd:LayoutPanel Caption="Bloomberg News" Name="layoutPanel2" Visibility="Hidden">
                                 <WebBrowser Name="bbgPanelBrowser" SnapsToDevicePixels="False" ClipToBounds="False" />
                             </dxd:LayoutPanel>
                         </dxd:LayoutGroup>
-                        <dxd:LayoutPanel Caption="Panel3" Name="layoutPanel3">
+                        <dxd:LayoutPanel Caption="1352 HOSUI" Name="layoutPanel3">
                             <StackPanel>
                                 <panels:Depth/>
-                                <TextBlock>Hello</TextBlock>
-                                <WebBrowser Name="webBrowser1"/>
+                                <Image Source="/DXWPFApplication2;component/Images/Icons/charts.gif" Stretch="UniformToFill" />
                             </StackPanel>
                         </dxd:LayoutPanel>
                     </dxd:LayoutGroup>
