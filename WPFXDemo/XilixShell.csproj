@@ -82,6 +82,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewTopWindowCommand.cs" />
+    <Compile Include="Panels\Depth.xaml.cs">
+      <DependentUpon>Depth.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -111,8 +114,51 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Panels\Depth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panels\DepthStacked.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Icons\Blue\1.png" />
+    <Resource Include="Images\Icons\Blue\10.png" />
+    <Resource Include="Images\Icons\Blue\11.png" />
+    <Resource Include="Images\Icons\Blue\12.png" />
+    <Resource Include="Images\Icons\Blue\13.png" />
+    <Resource Include="Images\Icons\Blue\14.png" />
+    <Resource Include="Images\Icons\Blue\15.png" />
+    <Resource Include="Images\Icons\Blue\16.png" />
+    <Resource Include="Images\Icons\Blue\17.png" />
+    <Resource Include="Images\Icons\Blue\18.png" />
+    <Resource Include="Images\Icons\Blue\19.png" />
+    <Resource Include="Images\Icons\Blue\2.png" />
+    <Resource Include="Images\Icons\Blue\20.png" />
+    <Resource Include="Images\Icons\Blue\21.png" />
+    <Resource Include="Images\Icons\Blue\22.png" />
+    <Resource Include="Images\Icons\Blue\23.png" />
+    <Resource Include="Images\Icons\Blue\24.png" />
+    <Resource Include="Images\Icons\Blue\25.png" />
+    <Resource Include="Images\Icons\Blue\26.png" />
+    <Resource Include="Images\Icons\Blue\27.png" />
+    <Resource Include="Images\Icons\Blue\28.png" />
+    <Resource Include="Images\Icons\Blue\29.png" />
+    <Resource Include="Images\Icons\Blue\3.png" />
+    <Resource Include="Images\Icons\Blue\30.png" />
+    <Resource Include="Images\Icons\Blue\31.png" />
+    <Resource Include="Images\Icons\Blue\32.png" />
+    <Resource Include="Images\Icons\Blue\33.png" />
+    <Resource Include="Images\Icons\Blue\34.png" />
+    <Resource Include="Images\Icons\Blue\35.png" />
+    <Resource Include="Images\Icons\Blue\4.png" />
+    <Resource Include="Images\Icons\Blue\5.png" />
+    <Resource Include="Images\Icons\Blue\6.png" />
+    <Resource Include="Images\Icons\Blue\7.png" />
+    <Resource Include="Images\Icons\Blue\8.png" />
+    <Resource Include="Images\Icons\Blue\9.png" />
     <Resource Include="Images\Icons\new-16x16.png" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +235,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icons\switch-window-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\Blue\leftarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\bbg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

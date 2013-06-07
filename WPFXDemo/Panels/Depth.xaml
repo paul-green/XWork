@@ -1,0 +1,281 @@
+﻿<UserControl x:Class="DXWPFApplication2.Panels.Depth"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="283" d:DesignWidth="290">
+    <DockPanel>
+        <Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  ShowGridLines="False" Background="White"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "32" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+                <RowDefinition Height = "*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="32" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="32" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  x:Key ="YellowRectangle">
+                    <Setter Property="Rectangle.RadiusX" Value="6"/>
+                    <Setter Property="Rectangle.RadiusY" Value="6"/>
+                    <Setter Property="Rectangle.Fill" Value="Yellow"/>
+                    <Setter Property="Rectangle.Margin" Value="0,1,0,1"/>
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  TargetType="{x:Type Rectangle}">
+                    <Setter Property="Stroke" Value="Gray"/>
+                    <Setter Property="StrokeThickness" Value="0.5"/>
+                    <Setter Property="Margin" Value="0,0,0,-1"/>
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  x:Key ="ButtonRectangle" TargetType="{x:Type Rectangle}">
+                    <Setter Property="Fill" Value="Silver" />
+                    <Setter Property="Stroke" Value="Gray"/>
+                    <Setter Property="StrokeThickness" Value="0.5"/>
+                    <Setter Property="Margin" Value="0,0,0,-1"/>
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key ="ButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                    <Setter Property="Margin" Value="0,0,0,-1"/>
+                    <Setter Property="Focusable" Value="False" />
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" TargetType="{x:Type TextBlock}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Focusable" Value="False" />
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key = "PriceCell" TargetType="{x:Type TextBlock}">
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Foreground" Value="Silver" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Focusable" Value="False" />
+                    <Setter Property="Tag" Value="Price(x)" />
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key = "BuyCell" TargetType="{x:Type TextBlock}"  BasedOn="{StaticResource PriceCell}">
+                    <Setter Property="Tag" Value="Buy(x)" />
+                    <Setter Property="Foreground" Value="LightPink" />
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key = "SellCell" TargetType="{x:Type TextBlock}"  BasedOn="{StaticResource PriceCell}">
+                    <Setter Property="Tag" Value="Sell(x)" />
+                    <Setter Property="Foreground" Value="SkyBlue" />
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key = "HeaderCell" TargetType="{x:Type TextBlock}"  BasedOn="{StaticResource PriceCell}">
+                    <Setter Property="Tag" Value="Sell(x)" />
+                    <Setter Property="Foreground" Value="LightYellow" />
+                    <Setter Property="Cursor" Value="Arrow" />
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key = "HeaderText" TargetType="{x:Type TextBlock}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Foreground" Value="White" />
+                </Style>
+                <Style xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key = "SmallHeaderText" TargetType="{x:Type TextBlock}"  BasedOn="{StaticResource HeaderText}">
+                    <Setter Property="FontSize" Value="9"/>
+                    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+                </Style>
+                <Style x:Key="InformationRectangle" TargetType="Rectangle" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  >
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=[Details.Side]}" Value="Buy">
+                            <Setter Property="Fill">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Color="Salmon" Offset="0" />
+                                            <GradientStop Color="LightPink" Offset="1" />
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=[Details.Side]}" Value="Sell">
+                            <Setter Property="Fill" >
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Color="RoyalBlue" Offset="0" />
+                                            <GradientStop Color="SkyBlue" Offset="1" />
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+                <Style x:Key="InformationText" TargetType="TextBlock" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  >
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=[Details.Side]}" Value="Buy">
+                            <Setter Property="Foreground" Value="Black" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=[Details.Side]}" Value="Sell">
+                            <Setter Property="Foreground" Value="AliceBlue" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+
+
+            <Grid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Layers">
+                        <MenuItem Header="Standard">
+                            <MenuItem Header="Depth" Tag="Open(Depth 5 Levels)"></MenuItem>
+                            <MenuItem Header="Depth + Own Orders" Tag="Open(Depth + Own Orders)"></MenuItem>
+                            <MenuItem Header="Depth + Own Orders + 8 Orders" Tag="Open(Depth + Own Orders + 8 Orders)"></MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="Hit And Take">
+                            <MenuItem Header="Depth"></MenuItem>
+                            <MenuItem Header="Depth + Own Orders"></MenuItem>
+                            <MenuItem Header="Depth + Own Orders + 8 Orders"></MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="Hit And Take + Join">
+                            <MenuItem Header="Depth"></MenuItem>
+                            <MenuItem Header="Depth + Own Orders"></MenuItem>
+                            <MenuItem Header="Depth + Own Orders + 8 Orders"></MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="Depth Shallow" Tag="Open(Depth Shallow)"></MenuItem>
+                    </MenuItem>
+                </ContextMenu>
+            </Grid.ContextMenu>
+
+            <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="14" RadiusX="8" RadiusY="8" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#000000" Offset="0.0" />
+                        <GradientStop Color="#404040" Offset="0.4" />
+                        <GradientStop Color="#505050" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+
+
+            <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" VerticalAlignment="Center">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource InformationText}"><TextBlock Text="{Binding Path=[InstrumentListing.Code]}" />  - <TextBlock Text="{Binding Path=[Instrument.Name]}" /></TextBlock>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource InformationText}">
+	<TextBlock.Text>
+		<MultiBinding StringFormat="{}{0} {1} @ {2:#,##0.00;-#,##0.00;'MKT'}">
+            		<Binding Path="[Details.Side]"/>
+       	    		<Binding Path="[Details.Quantity]"/>
+	    		<Binding Path="[Details.Price]" />
+        	</MultiBinding>
+		</TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+
+
+            <TextBlock Grid.Column="0" Grid.Row="1"  Style="{StaticResource HeaderCell}">Sell</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="1"  Style="{StaticResource HeaderCell}">Ask</TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="1"  Style="{StaticResource HeaderCell}">Price</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="1"  Style="{StaticResource HeaderCell}">Bid</TextBlock>
+            <TextBlock Grid.Column="4" Grid.Row="1"  Style="{StaticResource HeaderCell}">Buy</TextBlock>
+
+            <Canvas Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Width="1024" Height="18">
+                <Line X1="0" Y1="17" X2="1024" Y2="17" StrokeThickness="1" />
+            </Canvas>
+
+            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource SellCell}">1</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Path=[Depth.BestAsk5]}" />
+            <TextBlock Grid.Column="2" Grid.Row="2" Style="{StaticResource PriceCell}" Foreground="LightGreen" Cursor="Hand" Tag="price(0)">Market</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="2" ></TextBlock>
+            <TextBlock Grid.Column="4" Grid.Row="2" Style="{StaticResource BuyCell}">1</TextBlock>
+
+
+            <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource SellCell}">2</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Path=[Depth.BestAsk4]}" />
+            <TextBlock Grid.Column="2" Grid.Row="3" Foreground="#969696" Style="{StaticResource PriceCell}" >1,893</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="3"></TextBlock>
+            <TextBlock Grid.Column="4" Grid.Row="3" Style="{StaticResource BuyCell}">2</TextBlock>
+
+            <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource SellCell}">3</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Path=[Depth.BestAsk3]}" />
+            <TextBlock Grid.Column="2" Grid.Row="4" Foreground="#aaaaaa" Style="{StaticResource PriceCell}">1,892</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="4" ></TextBlock>
+            <TextBlock Grid.Column="4" Grid.Row="4" Style="{StaticResource BuyCell}">3</TextBlock>
+
+            <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource SellCell}">4</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding Path=[Depth.BestAsk2]}" />
+            <TextBlock Grid.Column="2" Grid.Row="5" Foreground="#bebebe" Style="{StaticResource PriceCell}">1,890</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="5" ></TextBlock>
+            <TextBlock Grid.Column="4" Grid.Row="5" Style="{StaticResource BuyCell}">4</TextBlock>
+
+            <TextBlock Grid.Column="0" Grid.Row="6" Style="{StaticResource SellCell}">5</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding Path=[Depth.BestAsk1]}" />
+            <TextBlock Grid.Column="2" Grid.Row="6" Foreground="#d2d2d2" Style="{StaticResource PriceCell}">1,889</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="6" ></TextBlock>
+            <TextBlock Grid.Column="4" Grid.Row="6" Style="{StaticResource BuyCell}">5</TextBlock>
+
+            <TextBlock Grid.Column="0" Grid.Row="7" Style="{StaticResource SellCell}">10</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="7" ></TextBlock>
+            <TextBlock Name="MyTextBlock" Grid.Column="2" Grid.Row="7" FontWeight="Bold" Style="{StaticResource PriceCell}" Foreground="Yellow" Tag="@lastbid">1,886
+	<TextBlock.Triggers>
+	<EventTrigger RoutedEvent="TextBlock.Loaded">
+	<BeginStoryboard>
+	<Storyboard>
+	<DoubleAnimation Storyboard.TargetName="MyTextBlock" Storyboard.TargetProperty="(Opacity)"
+		 From="1.0" To=".10" Duration="0:0:1" AutoReverse="True" RepeatBehavior="Forever"/>
+	</Storyboard>
+	</BeginStoryboard>
+	</EventTrigger>
+	</TextBlock.Triggers>
+	<TextBlock.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Change Price" ></MenuItem>
+            </ContextMenu>
+   </TextBlock.ContextMenu>
+            </TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="7" Text="{Binding Path=[Depth.BestBid1]}" />
+            <TextBlock Grid.Column="4" Grid.Row="7"  Style="{StaticResource BuyCell}" Tag="Buy(x)">10</TextBlock>
+
+
+            <TextBlock Grid.Column="0" Grid.Row="8" Style="{StaticResource SellCell}" Tag="Sell(x)">15</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="8" ></TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="8" Style="{StaticResource PriceCell}" Text="{Binding Path=[Depth.BestBidQuantity2]}" />
+            <TextBlock Grid.Column="3" Grid.Row="8" Text="{Binding Path=[Depth.BestBid2]}" />
+            <TextBlock Grid.Column="4" Grid.Row="8" Style="{StaticResource BuyCell}" Tag="Buy(x)">15</TextBlock>
+
+
+            <TextBlock Grid.Column="0" Grid.Row="9" Style="{StaticResource SellCell}" Tag="Sell(x)">20</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="9" ></TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="9" Style="{StaticResource PriceCell}" Text="{Binding Path=[Depth.BestBidQuantity3]}" />
+            <TextBlock Grid.Column="3" Grid.Row="9" Text="{Binding Path=[Depth.BestBid3]}" />
+            <TextBlock Grid.Column="4" Grid.Row="9" Style="{StaticResource BuyCell}">20</TextBlock>
+
+            <TextBlock Grid.Column="0" Grid.Row="10" Style="{StaticResource SellCell}" Tag="Sell(25)">25</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="10" ></TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="10" Style="{StaticResource SellCell}" Tag="Price(x)" Text="{Binding Path=[Depth.BestBidQuantity4]}" />
+            <TextBlock Grid.Column="3" Grid.Row="10" Text="{Binding Path=[Depth.BestBid4]}" />
+            <TextBlock Grid.Column="4" Grid.Row="10" Style="{StaticResource BuyCell}" Tag="Buy(25)">25</TextBlock>
+
+            <TextBlock Grid.Column="0" Grid.Row="11" Style="{StaticResource SellCell}" Tag="Sell(x)">30</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="11" ></TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="11" Style="{StaticResource SellCell}" Tag="Price(x)" Text="{Binding Path=[Depth.BestBidQuantity4]}" />
+            <TextBlock Grid.Column="3" Grid.Row="11" Text="{Binding Path=[Depth.BestBid4]}" />
+            <TextBlock Grid.Column="4" Grid.Row="11" Style="{StaticResource BuyCell}" Tag="Buy(x)">30</TextBlock>
+
+            <TextBlock Grid.Column="0" Grid.Row="12" Style="{StaticResource SellCell}" Tag="Sell(x)">50</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="12" ></TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="12" Style="{StaticResource SellCell}" Tag="Price(x)" Text="{Binding Path=[Depth.BestBidQuantity4]}" />
+            <TextBlock Grid.Column="3" Grid.Row="12" Text="{Binding Path=[Depth.BestBid4]}" />
+            <TextBlock Grid.Column="4" Grid.Row="12" Style="{StaticResource BuyCell}" Tag="Buy(x)">50</TextBlock>
+
+        </Grid>
+    </DockPanel>
+</UserControl>

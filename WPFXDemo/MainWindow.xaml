@@ -14,6 +14,7 @@
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
     xmlns:prism="http://www.codeplex.com/prism"
+    xmlns:panels="clr-namespace:DXWPFApplication2.Panels"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     SnapsToDevicePixels="True" UseLayoutRounding="True"
     Title="Xilix WPF" Height="700" Width="1100"
@@ -23,6 +24,7 @@
     </dxr:DXRibbonWindow.Resources>
     <dxr:DXRibbonWindow.CommandBindings>
         <CommandBinding Command="Open" Executed="CreatePanelCommandExecute" CanExecute="CanExecuteCreatePanelCommand"/>
+        <CommandBinding Command="New" Executed="CreatePanelCommandExecuteBBG" CanExecute="CanExecuteCreatePanelCommandBBG"/>        
         <!--ThemeManager.ThemeName="DeepBlue" -->
 
     </dxr:DXRibbonWindow.CommandBindings>
@@ -36,11 +38,20 @@
             <dxb:BarButtonItem x:Name="bNewTopWindow" Content="New Top Window" Glyph="Images/Icons/Group.png" LargeGlyph="Images/Icons/Group.png" />
             <dxb:BarButtonItem x:Name="bNewPanel" Content="New Panel" Glyph="Images/Icons/new-16x16.png" LargeGlyph="Images/Icons/New-32x32.png" />
             <dxb:BarButtonItem x:Name="bPrint" Content="Print" Glyph="Images/Icons/print-16x16.png" LargeGlyph="Images/Icons/print-32x32.png" />
-            <dxb:BarButtonItem x:Name="bLayout" Content="Layout" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
             <dxb:BarButtonItem x:Name="bAdvices" Content="Advices" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
             <dxb:BarButtonItem x:Name="bClientView" Content="Client View" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
             <dxb:BarButtonItem x:Name="bDiscretions" Content="Discretion View" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
 
+            <dxb:BarButtonItem x:Name="panelInbox" Content="Inbox" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
+            <dxb:BarButtonItem x:Name="panelDiscretions" Content="Discretions" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
+            <dxb:BarButtonItem x:Name="panelOrders" Content="Orders" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
+            <dxb:BarButtonItem x:Name="panelBaskets" Content="Baskets" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
+            <dxb:BarButtonItem x:Name="morePanels" Content="More..." Glyph="/DXWPFApplication2;component/Images/Icons/Group.png" LargeGlyph="Images/Icons/Item.png" />
+            <dxb:BarButtonItem x:Name="panelBBGNews" Content="BBG News" Glyph="/DXWPFApplication2;component/Images/Icons/bbg.jpg" LargeGlyph="Images/Icons/Item.png"  Command="New" />            
+
+            <dxb:BarButtonItem x:Name="arrangeHorizontal" Content="Horizontal" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
+            <dxb:BarButtonItem x:Name="arrangeVertical" Content="Vertical" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
+            <dxb:BarButtonItem x:Name="arrangeTabbed" Content="Tabbed" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
 
 
             <dxb:BarSubItem x:Name="mmFile" Content="File" Glyph="Images/Icons/zoom-16x16.png" LargeGlyph="Images/Icons/zoom-32x32.png">
@@ -70,7 +81,7 @@
                     <dxb:Gallery Name="gallery1" />
                 </dxr:RibbonGalleryBarItem.Gallery>
             </dxr:RibbonGalleryBarItem>
-            <dxb:BarSplitButtonItem Content="Views..." Name="viewDropDown" BarItemDisplayMode="ContentAndGlyph" Glyph="/DXWPFApplication2;component/Images/Icons/switch-window-32x32.png" GlyphAlignment="Top" GlyphSize="Large" ArrowAlignment="Bottom" RibbonStyle="Large">
+            <dxb:BarSplitButtonItem Content="Workspaces..." Name="workspacesDropDown" BarItemDisplayMode="ContentAndGlyph" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/8.png" GlyphAlignment="Top" GlyphSize="Large" ArrowAlignment="Bottom" RibbonStyle="Large">
                 <dxb:BarSplitButtonItem.PopupControl>
                     <dxb:PopupMenu>
                         <dxb:BarButtonItemLink BarItemName="bAdvices"/>
@@ -79,6 +90,31 @@
                     </dxb:PopupMenu>
                 </dxb:BarSplitButtonItem.PopupControl>
             </dxb:BarSplitButtonItem>
+            <dxb:BarSplitButtonItem Content="Panels..." Name="viewPanels" BarItemDisplayMode="ContentAndGlyph" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/7.png" GlyphAlignment="Top" GlyphSize="Large" ArrowAlignment="Bottom" RibbonStyle="Large">
+                <dxb:BarSplitButtonItem.PopupControl>
+                    <dxb:PopupMenu>
+                        <dxb:BarButtonItemLink BarItemName="panelInbox"/>
+                        <dxb:BarButtonItemLink BarItemName="panelDiscretions"/>
+                        <dxb:BarButtonItemLink BarItemName="panelOrders"/>
+                        <dxb:BarButtonItemLink BarItemName="panelBBGNews"/>                        
+                        <dxb:BarButtonItemLink BarItemName="morePanels"/>
+                    </dxb:PopupMenu>
+                </dxb:BarSplitButtonItem.PopupControl>
+            </dxb:BarSplitButtonItem>
+            <dxb:BarButtonItem Content="Close All" Name="btnCloseAllPanel" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/33.png" />
+            <dxb:BarSplitButtonItem Content="Arrange" Name="barSplitButtonItem1" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/29.png">
+                <dxb:BarSplitButtonItem.PopupControl>
+                    <dxb:PopupMenu>
+                        <dxb:BarButtonItemLink BarItemName="arrangeHorizontal"/>
+                        <dxb:BarButtonItemLink BarItemName="arrangeVertical"/>
+                        <dxb:BarButtonItemLink BarItemName="arrangeTabbed"/>
+                    </dxb:PopupMenu>
+                </dxb:BarSplitButtonItem.PopupControl>
+            </dxb:BarSplitButtonItem>
+            <dxb:BarButtonItem Content="Export" Name="barButtonItem1" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/leftarrow.png" />
+            <dxb:BarButtonItem Content="Import" Name="barButtonItem2" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/14.png" />
+            <dxb:BarButtonItem Content="Save As..." Name="barButtonItem3" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/19.png" />
+            <dxb:BarButtonItem Content="Export Scheduled" Name="barButtonItem4" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/2.png" />
         </dxb:BarManager.Items>
         <DockPanel>
             <dxr:RibbonControl x:Name="ribbonControl1" RibbonStyle="Office2007" dxbh:BlendHelperForBarsAndRibbon.IsDesignControl="true" DockPanel.Dock="Top">
@@ -131,16 +167,23 @@
                         <dxr:RibbonPageGroup Caption="Appearance" Name="ribbonPageGroup2" IsCaptionButtonEnabled="True" ShowCaptionButton="False">
                             <dxb:BarEditItemLink BarItemName="themeCombo" />
                         </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Export" Name="ribbonPageGroup4" AllowRemoveFromParentDuringCustomization="True" ShowCaptionButton="True">
+                            <dxb:BarButtonItemLink BarItemName="barButtonItem1" />
+                            <dxb:BarButtonItemLink BarItemName="barButtonItem2" />
+                            <dxb:BarButtonItemLink BarItemName="barButtonItem4" />
+                        </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
                     <dxr:RibbonPage Name="RibbonViews" Caption="View">
                         <dxr:RibbonPageGroup Caption="Views" Name="OpenViews">
-                            <dxb:BarSplitButtonItemLink BarItemName="viewDropDown">
+                            <dxb:BarSplitButtonItemLink BarItemName="workspacesDropDown">
                                 
                             </dxb:BarSplitButtonItemLink>
+                            <dxb:BarSplitButtonItemLink BarItemName="viewPanels" />
+                            <dxb:BarButtonItemLink BarItemName="barButtonItem3" />
                         </dxr:RibbonPageGroup>
-                        <dxr:RibbonPageGroup Caption="Panels" Name="ribbonPageGroup3">
-                            <dxb:BarButtonItemLink BarItemName="bLayout" />
-                            <dxb:BarButtonItemLink BarItemName="bLayout" />
+                        <dxr:RibbonPageGroup Caption="Layout" Name="ribbonPageGroup3">
+                            <dxb:BarButtonItemLink BarItemName="btnCloseAllPanel" />
+                            <dxb:BarSplitButtonItemLink BarItemName="barSplitButtonItem1" />
                         </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
                     <dxr:RibbonPage Caption="Settings" Name="settings">
@@ -148,6 +191,7 @@
                             <dxb:BarEditItemLink BarItemName="themeCombo" />
                             <dxb:BarEditItemLink BarItemName="fontSize" />
                         </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="All" Name="settingsMain" />
                     </dxr:RibbonPage>
                 </dxr:RibbonDefaultPageCategory>
                 <dxr:RibbonControl.ToolbarItemLinks>
@@ -164,13 +208,22 @@
                 <dxd:DockLayoutManager.LayoutRoot>
                     <dxd:LayoutGroup>
                         <dxd:LayoutGroup Orientation="Vertical">
-                            <dxd:LayoutPanel Caption="Baskets" Name="layoutPanel1" />
+                            <dxd:LayoutGroup Orientation="Horizontal">
+                                <dxd:LayoutPanel Caption="Baskets" Name="layoutPanel1" />
+                                <dxd:LayoutPanel Caption="1352 HOSUI" Name="DepthPanel">
+                           
+                                </dxd:LayoutPanel>
+                            </dxd:LayoutGroup>
                             <dxd:LayoutPanel Caption="Bloomberg News" Name="layoutPanel2">
-                                <WebBrowser Name="webBrowser2" Source="file:///C:/Users/paulg/Desktop/bb.html" />
+                                <WebBrowser Name="bbgPanelBrowser" SnapsToDevicePixels="False" ClipToBounds="False" />
                             </dxd:LayoutPanel>
                         </dxd:LayoutGroup>
                         <dxd:LayoutPanel Caption="Panel3" Name="layoutPanel3">
-                            <WebBrowser Name="webBrowser1" Source="http://chart.finance.yahoo.com/z?s=POWERGRID.BO&amp;t=1y&amp;q=&amp;l=&amp;z=l&amp;a=v&amp;p=s&amp;lang=en-AU&amp;region=AU" />
+                            <StackPanel>
+                                <panels:Depth/>
+                                <TextBlock>Hello</TextBlock>
+                                <WebBrowser Name="webBrowser1"/>
+                            </StackPanel>
                         </dxd:LayoutPanel>
                     </dxd:LayoutGroup>
                 </dxd:DockLayoutManager.LayoutRoot>
