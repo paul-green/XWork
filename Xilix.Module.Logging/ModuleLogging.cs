@@ -6,6 +6,9 @@ using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.MefExtensions.Modularity;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition;
+using Microsoft.Practices.ServiceLocation;
+using System.Runtime.CompilerServices;
+using Microsoft.Practices.Prism.Regions;
 
 
 namespace Xilix.Module.Logging
@@ -13,12 +16,13 @@ namespace Xilix.Module.Logging
     [ModuleExport(typeof(ModuleLogging))]
     public class ModuleLogging : IModule
     {
-        //[ImportingConstructor]
-        //public ModuleLogging(CompositionContainer parentContainer)
-        //{
 
-        //}
+        public ModuleLogging(IRegionManager regionManager)
+        {
 
+        }
+
+     
         public void Initialize()
         {
             

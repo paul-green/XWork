@@ -121,7 +121,7 @@
             <dxb:BarButtonItem Content="Today" Name="barButtonItem6" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/5.png" />
         </dxb:BarManager.Items>
         <DockPanel>
-            <dxr:RibbonControl x:Name="ribbonControl1" RibbonStyle="Office2007" dxbh:BlendHelperForBarsAndRibbon.IsDesignControl="true" DockPanel.Dock="Top">
+            <dxr:RibbonControl x:Name="ribbonControl1" RibbonStyle="Office2007" dxbh:BlendHelperForBarsAndRibbon.IsDesignControl="true" DockPanel.Dock="Top" prism:RegionManager.RegionName="RibbonRegion">
                 <dxr:RibbonControl.ApplicationMenu>
                     <dxr:ApplicationMenu RightPaneWidth="280" ShowRightPane="True">
                         <dxr:ApplicationMenu.ItemLinks>

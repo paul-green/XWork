@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Practices.Prism.MefExtensions;
+﻿using Microsoft.Practices.Prism.MefExtensions;
 using System.Windows;
 using Microsoft.Practices.Prism.Modularity;
 using System.ComponentModel.Composition.Hosting;
+using Microsoft.Practices.ServiceLocation;
+using System.ComponentModel.Composition;
+using Microsoft.Practices.Prism.Regions;
+using DXWPFApplication2.RegionAdapters;
+using DevExpress.Xpf.Ribbon;
+using System.Reflection;
 
 
 namespace DXWPFApplication2
@@ -29,25 +31,49 @@ namespace DXWPFApplication2
         }
 
 
+        
+
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
+
+            // Because we created the CallbackLogger and it needs to be used immediately, we compose it to satisfy any imports it has.
+          this.Container.ComposeExportedValue<CompositionContainer>(this.Container);
+
+        //  this.Container.ComposeExportedValue<DevExpressRibbonAdapter>();
         }
+
+        protected override void ConfigureAggregateCatalog()
+        {
+            base.ConfigureAggregateCatalog();
+
+            //Scan the current assembly for Export types and register in the container
+            AggregateCatalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
+        } 
+
+
+
 
         protected override IModuleCatalog CreateModuleCatalog()
         {
+            //Scan the current folder for modules (ModuleExport)
             return new DirectoryModuleCatalog() { ModulePath="."};
         }
 
-        //protected override void ConfigureAggregateCatalog()
-        //{
-        //    base.ConfigureAggregateCatalog();
 
-        //    string dir = Environment.CurrentDirectory;
-        //    DirectoryCatalog catalog = new DirectoryCatalog(".");
-        //    AggregateCatalog.Catalogs.Add(catalog);
-        //}
+        protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
+        {
+            // Call base method
+            var mappings = base.ConfigureRegionAdapterMappings();
+            if (mappings == null) return null;
 
+            
+            var t = base.Container.GetExport<DevExpressRibbonAdapter>();
+            mappings.RegisterMapping(typeof(RibbonControl), t.Value);
+
+            // Set return value
+            return mappings;
+        }
 
 
     }
