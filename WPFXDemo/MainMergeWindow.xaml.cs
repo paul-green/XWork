@@ -9,17 +9,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XilixShell.Panels
+namespace XilixShell
 {
     /// <summary>
-    /// Interaction logic for Depth.xaml
+    /// Interaction logic for MainMergeWindow.xaml
     /// </summary>
-    public partial class Depth : UserControl
+    public partial class MainMergeWindow : Window
     {
-        public Depth()
+        public MainMergeWindow()
         {
             InitializeComponent();
         }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
-namespace DXWPFApplication2
+namespace XilixShell
 {
     /// <summary>
     /// Interaction logic for App.xaml

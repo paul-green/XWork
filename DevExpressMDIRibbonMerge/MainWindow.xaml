@@ -9,7 +9,7 @@
     xmlns:dxbh="http://schemas.devexpress.com/winfx/2008/xaml/bars/internal"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:dxd="http://schemas.devexpress.com/winfx/2008/xaml/docking"
-    Title="DXApplication" Height="700" Width="1100"
+    Title="DXApplication" Height="938" Width="1223"
     SnapsToDevicePixels="True" UseLayoutRounding="True"
     dx:ThemeManager.ThemeName="Office2007Blue"
     >
@@ -82,14 +82,14 @@
             </dxr:RibbonControl>
             <dxd:DockLayoutManager x:Name="dockLayoutManager">
                 <dxd:LayoutGroup>
-                    <dxd:DocumentGroup x:Name="mdiContainer" MDIStyle="MDI">
+                    <dxd:DocumentGroup x:Name="mdiContainer" MDIStyle="MDI" SelectedTabIndex="0">
                         <dxd:DocumentPanel Caption="NavigationView" MDILocation="20,20" MDISize="300,300">
                             <TextBox BorderThickness="0" />
                         </dxd:DocumentPanel>
                         <dxd:DocumentPanel Caption="MainView" MDILocation="50,50" MDISize="300,300">
                             <TextBox BorderThickness="0" />
                         </dxd:DocumentPanel>
-                        <dxd:DocumentPanel Caption="DetailView" MDILocation="504,20" MDISize="439,366">
+                        <dxd:DocumentPanel Caption="DetailView" MDILocation="263,34" MDISize="792,494">
                             <dxb:BarManager>
                                 <dxb:BarManager.Items>
                                     <dxb:BarButtonItem x:Name="bCopy" Content="Copy" Glyph="Images/Icons/copy-16x16.png" LargeGlyph="Images/Icons/copy-32x32.png" />
@@ -117,10 +117,18 @@
                                             </dxr:RibbonPage>
                                         </dxr:RibbonDefaultPageCategory>
                                 </dxr:RibbonControl>
-                                <TextBox BorderThickness="1"  Grid.Row="1"/>
-                            </Grid>
+                                    <dxd:DockLayoutManager Grid.Row="1" Name="dockLayoutManager1">
+                                        <dxd:DockLayoutManager.LayoutRoot>
+                                            <dxd:LayoutGroup Caption="LayoutRoot">
+                                                <dxd:LayoutPanel Caption="Panel1" />
+                                                <dxd:LayoutPanel Caption="Panel2" />
+                                            </dxd:LayoutGroup>
+                                        </dxd:DockLayoutManager.LayoutRoot>
+                                    </dxd:DockLayoutManager>
+                                </Grid>
                             </dxb:BarManager>
                         </dxd:DocumentPanel>
+                        <dxd:DocumentPanel Caption="Document" MDILocation="357,108" MDISize="343,281" />
                     </dxd:DocumentGroup>
                 </dxd:LayoutGroup>
             </dxd:DockLayoutManager>
