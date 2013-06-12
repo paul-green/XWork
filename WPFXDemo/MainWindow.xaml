@@ -17,7 +17,7 @@
     xmlns:panels="clr-namespace:DXWPFApplication2.Panels"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     SnapsToDevicePixels="True" UseLayoutRounding="True"
-    Title="Xilix WPF" Height="700" Width="1100" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges">
+    Title="Xilix WPF" Height="1234" Width="1304" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges">
     <dxr:DXRibbonWindow.Resources>
 
     </dxr:DXRibbonWindow.Resources>
@@ -83,7 +83,7 @@
             <dxb:BarSplitButtonItem Content="Workspaces..." Name="workspacesDropDown" BarItemDisplayMode="ContentAndGlyph" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/8.png" GlyphAlignment="Top" GlyphSize="Large" ArrowAlignment="Bottom" RibbonStyle="Large">
                 <dxb:BarSplitButtonItem.PopupControl>
                     <dxb:PopupMenu>
-                        <dxb:BarButtonItemLink BarItemName="bAdvices"/>
+                        <dxb:BarButtonItemLink BarItemName="bWorkspace_News"/>
                         <dxb:BarButtonItemLink BarItemName="bClientView"/>
                         <dxb:BarButtonItemLink BarItemName="bDiscretions"/>
                     </dxb:PopupMenu>
@@ -120,9 +120,9 @@
             <dxb:BarButtonItem Content="Today" Name="barButtonItem6" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/5.png" />
         </dxb:BarManager.Items>
         <DockPanel>
-            <dxr:RibbonControl x:Name="ribbonControl1" RibbonStyle="Office2007" dxbh:BlendHelperForBarsAndRibbon.IsDesignControl="true" DockPanel.Dock="Top" prism:RegionManager.RegionName="RibbonRegion">
+            <dxr:RibbonControl x:Name="ribbonControl1" RibbonStyle="Office2007" dxbh:BlendHelperForBarsAndRibbon.IsDesignControl="true" DockPanel.Dock="Top" >
                 <dxr:RibbonControl.ApplicationMenu>
-                    <dxr:ApplicationMenu RightPaneWidth="280" ShowRightPane="True">
+                    <dxr:ApplicationMenu RightPaneWidth="20" ShowRightPane="True">
                         <dxr:ApplicationMenu.ItemLinks>
                             <dxb:BarButtonItemLink BarItemName="bNewTopWindow" />
                             <dxb:BarButtonItemLink BarItemName="bHelp" />
@@ -133,9 +133,6 @@
                                 <dxe:ComboBoxEdit x:Name="themeComboBox" Width="150" Height="24" 
                                         DisplayMember="Name" ValueMember="Name"
                                         SelectedIndexChanged="themeComboBox_SelectedIndexChanged"/>
-
-
-
                             </StackPanel>
                         </dxr:ApplicationMenu.RightPane>
                         <dxr:ApplicationMenu.BottomPane>
@@ -207,7 +204,6 @@
                         <dxr:RibbonPageGroup Caption="Dates" Name="ribbonPageGroup6">
                             <dxb:BarButtonItemLink BarItemName="barButtonItem6" />
                         </dxr:RibbonPageGroup>
-                        <dxr:RibbonPageGroup Caption="Ribbon Page Group 7" Name="ribbonPageGroup7" />
                     </dxr:RibbonPage>
                 </dxr:RibbonDefaultPageCategory>
                 <dxr:RibbonControl.ToolbarItemLinks>
@@ -222,11 +218,10 @@
             <dxr:RibbonStatusBarControl Name="ribbonStatusBarControl1" DockPanel.Dock="Bottom" />
 
             <dxd:DockLayoutManager x:Name="dockLayoutManager" FloatingMode="Desktop">
-
                 <dxd:LayoutGroup>
-                    <dxd:DocumentGroup x:Name="mdiContainer" MDIStyle="Tabbed" SelectedTabIndex="0">
+                    <dxd:DocumentGroup x:Name="mdiContaine22r" MDIStyle="Tabbed" SelectedTabIndex="4">
+                        
                         <dxd:DocumentPanel Caption="News Feeds" MDILocation="20,20" MDISize="300,300">
-
                             <dxb:BarManager >
                                 <dxb:BarManager.Items>
                                     <dxb:BarButtonItem x:Name="bCopy23" Content="Copy" Glyph="Images/Icons/copy-16x16.png" LargeGlyph="Images/Icons/copy-32x32.png" />
@@ -261,7 +256,7 @@
                                             
                                         </dxr:RibbonDefaultPageCategory>
                                     </dxr:RibbonControl>
-                                    <dxd:DockLayoutManager Grid.Row="1" Name="dockLayo876utManager1">
+                                    <dxd:DockLayoutManager Grid.Row="1" Name="dockLayo876utManage123r1">
                                         <dxd:DockLayoutManager.LayoutRoot>
                                             <dxd:LayoutGroup Caption="LayoutRoot">
                                                 <dxd:LayoutPanel Caption="CNN" CaptionImage="Images/Icons/cnn-16x16.jpg">
@@ -284,7 +279,7 @@
                                 </Grid>
                             </dxb:BarManager>
                         </dxd:DocumentPanel>
-                        <!--
+                        
                         <dxd:DocumentPanel Caption="Reporting" MDILocation="50,50" MDISize="300,300">
                             <dxb:BarManager>
                                 <dxb:BarManager.Items>
@@ -357,7 +352,6 @@
                                 </Grid>
                             </dxb:BarManager>
                         </dxd:DocumentPanel>
-                        -->
                         <dxd:DocumentPanel Caption="Live Market" MDILocation="263,34" MDISize="792,494">
                             <dxb:BarManager>
                                 <dxb:BarManager.Items>
@@ -372,19 +366,6 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <dxr:RibbonControl Name="ribbonControl2" Grid.Row="0">
-                                        <dxr:RibbonDefaultPageCategory Caption="defaultCategory" Name="ribbonDefaultPageCategory1">
-                                            <dxr:RibbonPage Caption="Market" Name="ribbonPage12">
-                                                <dxr:RibbonPageGroup Caption="Ribbon Page Group 2" Name="ribbonPageGroup22">
-                                                    <dxb:BarCheckItemLink BarItemName="barCheckItem1" />
-                                                    <dxb:BarButtonItemLink BarItemName="barButtonItem7" />
-                                                </dxr:RibbonPageGroup>
-                                            </dxr:RibbonPage>
-                                            <dxr:RibbonPage Caption="Ribbon Page 2" Name="ribbonPage2">
-                                                <dxr:RibbonPageGroup Caption="Ribbon Page Group 1" Name="ribbonPageGroup13"></dxr:RibbonPageGroup>
-                                            </dxr:RibbonPage>
-                                        </dxr:RibbonDefaultPageCategory>
-                                    </dxr:RibbonControl>
                                     <dxd:DockLayoutManager Grid.Row="1" Name="dockLayoutManager1">
                                         <dxd:DockLayoutManager.LayoutRoot>
                                             <dxd:LayoutGroup Caption="LayoutRoot">
@@ -403,10 +384,12 @@
                                 </Grid>
                             </dxb:BarManager>
                         </dxd:DocumentPanel>
+                        
                         <dxd:DocumentPanel Caption="Client View" MDILocation="357,108" MDISize="343,281">
                             <dxb:BarManager>
                                 <dxb:BarManager.Items>
                                     <dxb:BarButtonItem Content="Accept" Name="barButtonItem11" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/19.png" />
+                                    <dxb:BarButtonItem Content="Accepted" Name="barButtonItem15" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/34.png" />
                                 </dxb:BarManager.Items>
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -422,32 +405,220 @@
                                                 <dxr:RibbonPageGroup Caption="Filters" Name="dsds22">
                                                 </dxr:RibbonPageGroup>
                                             </dxr:RibbonPage>
+                                            <dxr:RibbonPage Caption="Filtering" Name="ribbonPage2">
+                                                <dxr:RibbonPageGroup Caption="Client View" Name="ribbonPageGroup7">
+                                                    <dxb:BarButtonItemLink BarItemName="barButtonItem15" />
+                                                </dxr:RibbonPageGroup>
+                                            </dxr:RibbonPage>
                                         </dxr:RibbonDefaultPageCategory>
                                     </dxr:RibbonControl>
                                     <dxd:DockLayoutManager Grid.Row="1" Name="dockLayoutManager_ClientView">
                                         <dxd:DockLayoutManager.LayoutRoot>
                                             <dxd:LayoutGroup Caption="LayoutRoot">
-                                                <dxd:TabbedGroup SelectedTabIndex="0">
-                                                    <dxd:LayoutPanel Caption="Inbox">Grid goes here</dxd:LayoutPanel>
-                                                    <dxd:LayoutPanel Caption="Baskets">Grid goes here</dxd:LayoutPanel>
+                                                <dxd:LayoutGroup Orientation="Vertical">
+                                                    <dxd:TabbedGroup SelectedTabIndex="2">
+                                                        <dxd:LayoutPanel Caption="Inbox">Grid goes here</dxd:LayoutPanel>
+                                                        <dxd:LayoutPanel Caption="Baskets">Grid goes here</dxd:LayoutPanel>
+                                                    </dxd:TabbedGroup>
                                                     <dxd:LayoutPanel Caption="Discretions">Grid goes here</dxd:LayoutPanel>
-                                                </dxd:TabbedGroup>
-                                                <dxd:LayoutPanel Caption="Selected Depth">
-                                                    <dxd:LayoutPanel.ControlBoxContent>
-                                                        <StackPanel Orientation="Horizontal">
-                                                            <Label>Instrument</Label>
-                                                            <ComboBox Width="100" IsEditable="True" Background="Transparent">
-                                                                <ComboBoxItem>1305</ComboBoxItem>
-                                                                <ComboBoxItem>1609</ComboBoxItem>
-                                                                <ComboBoxItem>1726</ComboBoxItem>
-                                                            </ComboBox>
-                                                        </StackPanel>
-                                                    </dxd:LayoutPanel.ControlBoxContent>
-                                                    <panels:Depth />
-                                                </dxd:LayoutPanel>
+                                                </dxd:LayoutGroup>
+                                                <dxd:LayoutGroup Grid.Column="2" Orientation="Vertical">
+                                                    <dxd:LayoutPanel Caption="Selected Depth">
+                                                        <dxd:LayoutPanel.ControlBoxContent>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Label>Instrument</Label>
+                                                                <ComboBox Width="100" IsEditable="True" Background="Transparent">
+                                                                    <ComboBoxItem>1305</ComboBoxItem>
+                                                                    <ComboBoxItem>1609</ComboBoxItem>
+                                                                    <ComboBoxItem>1726</ComboBoxItem>
+                                                                </ComboBox>
+                                                            </StackPanel>
+                                                        </dxd:LayoutPanel.ControlBoxContent>
+                                                        <panels:Depth />
+                                                    </dxd:LayoutPanel>
+                                                    <dxd:LayoutPanel Caption="A Chart" Grid.RowSpan="2">
+                                                        <dxc:ChartControl Name="chartContro22l3" Padding="2">
+                                                            <dxc:XYDiagram2D>
+                                                                <dxc:BarSideBySideSeries2D>
+                                                                    <dxc:SeriesPoint Value="5" />
+                                                                    <dxc:SeriesPoint Value="10" />
+                                                                    <dxc:SeriesPoint Value="15" />
+                                                                    <dxc:SeriesPoint Value="20" />
+                                                                </dxc:BarSideBySideSeries2D>
+                                                                <dxc:BarSideBySideSeries2D>
+                                                                    <dxc:SeriesPoint Value="12" />
+                                                                    <dxc:SeriesPoint Value="13" />
+                                                                    <dxc:SeriesPoint Value="14" />
+                                                                    <dxc:SeriesPoint Value="16" />
+                                                                </dxc:BarSideBySideSeries2D>
+                                                                <dxc:BarSideBySideSeries2D>
+                                                                    <dxc:SeriesPoint />
+                                                                    <dxc:SeriesPoint />
+                                                                    <dxc:SeriesPoint Value="1" />
+                                                                </dxc:BarSideBySideSeries2D>
+                                                            </dxc:XYDiagram2D>
+                                                        </dxc:ChartControl>
+                                                    </dxd:LayoutPanel>
+                                                </dxd:LayoutGroup>
                                             </dxd:LayoutGroup>
                                         </dxd:DockLayoutManager.LayoutRoot>
                                     </dxd:DockLayoutManager>
+                                    
+                                </Grid>
+                            </dxb:BarManager>
+                        </dxd:DocumentPanel>
+                        <dxd:DocumentPanel Caption="Multi-Depth" MDILocation="357,108" MDISize="343,281">
+                            <dxb:BarManager>
+                                <dxb:BarManager.Items>
+                                </dxb:BarManager.Items>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <dxr:RibbonControl Name="ribbonCosdntrol45" Grid.Row="0">
+                                        <dxr:RibbonDefaultPageCategory Caption="defaultCategory" Name="ribbonDeffdaultPageCategory121">
+                                            <dxr:RibbonPage Caption="Multi-Depth" Name="ribbdonPage1211">
+                                                <dxr:RibbonPageGroup Caption="Actions" Name="adddddsd">
+                                                </dxr:RibbonPageGroup>
+                                            </dxr:RibbonPage>
+                                        </dxr:RibbonDefaultPageCategory>
+                                    </dxr:RibbonControl>
+                                    <dxd:DockLayoutManager Grid.Row="1" Name="dockLayoutManager_MultiDepth">
+                                        <dxd:DockLayoutManager.LayoutRoot>
+                                            <dxd:LayoutGroup Caption="LayoutRoot">
+                                                <dxd:LayoutGroup Orientation="Vertical">
+                                                    <dxd:TabbedGroup SelectedTabIndex="0"></dxd:TabbedGroup>
+                                                </dxd:LayoutGroup>
+                                                <dxd:LayoutGroup Grid.Column="2" Orientation="Vertical">
+                                                    <dxd:LayoutGroup Orientation="Horizontal">
+                                                        <dxd:LayoutPanel Caption="Selected Depth">
+                                                            <dxd:LayoutPanel.ControlBoxContent>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label Content="Instrument" />
+                                                                    <ComboBox Background="Transparent" IsEditable="True" Width="100">
+                                                                        <ComboBoxItem Content="1305" />
+                                                                        <ComboBoxItem Content="1609" />
+                                                                        <ComboBoxItem Content="1726" />
+                                                                    </ComboBox>
+                                                                </StackPanel>
+                                                            </dxd:LayoutPanel.ControlBoxContent>
+                                                            <panels:Depth />
+                                                        </dxd:LayoutPanel>
+                                                        <dxd:LayoutPanel Caption="Panel" >
+                                                            <dxd:LayoutPanel.ControlBoxContent>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label Content="Instrument" />
+                                                                    <ComboBox Background="Transparent" IsEditable="True" Width="100">
+                                                                        <ComboBoxItem Content="1305" />
+                                                                        <ComboBoxItem Content="1609" />
+                                                                        <ComboBoxItem Content="1726" />
+                                                                    </ComboBox>
+                                                                </StackPanel>
+                                                            </dxd:LayoutPanel.ControlBoxContent>
+                                                            <panels:Depth />
+                                                        </dxd:LayoutPanel>
+                                                        <dxd:LayoutPanel Caption="Panel" >
+                                                            <dxd:LayoutPanel.ControlBoxContent>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label Content="Instrument" />
+                                                                    <ComboBox Background="Transparent" IsEditable="True" Width="100">
+                                                                        <ComboBoxItem Content="1305" />
+                                                                        <ComboBoxItem Content="1609" />
+                                                                        <ComboBoxItem Content="1726" />
+                                                                    </ComboBox>
+                                                                </StackPanel>
+                                                            </dxd:LayoutPanel.ControlBoxContent>
+                                                            <panels:Depth />
+                                                        </dxd:LayoutPanel>
+                                                    </dxd:LayoutGroup>
+                                                    <dxd:LayoutGroup Orientation="Horizontal">
+                                                        <dxd:LayoutPanel Caption="Selected Depth">
+                                                            <dxd:LayoutPanel.ControlBoxContent>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label Content="Instrument" />
+                                                                    <ComboBox Background="Transparent" IsEditable="True" Width="100">
+                                                                        <ComboBoxItem Content="1305" />
+                                                                        <ComboBoxItem Content="1609" />
+                                                                        <ComboBoxItem Content="1726" />
+                                                                    </ComboBox>
+                                                                </StackPanel>
+                                                            </dxd:LayoutPanel.ControlBoxContent>
+                                                            <panels:Depth />
+                                                        </dxd:LayoutPanel>
+                                                        <dxd:LayoutPanel Caption="Panel">
+                                                            <dxd:LayoutPanel.ControlBoxContent>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label Content="Instrument" />
+                                                                    <ComboBox Background="Transparent" IsEditable="True" Width="100">
+                                                                        <ComboBoxItem Content="1305" />
+                                                                        <ComboBoxItem Content="1609" />
+                                                                        <ComboBoxItem Content="1726" />
+                                                                    </ComboBox>
+                                                                </StackPanel>
+                                                            </dxd:LayoutPanel.ControlBoxContent>
+                                                            <panels:Depth />
+                                                        </dxd:LayoutPanel>
+                                                        <dxd:LayoutPanel Caption="Panel" >
+                                                            <dxd:LayoutPanel.ControlBoxContent>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label Content="Instrument" />
+                                                                    <ComboBox Background="Transparent" IsEditable="True" Width="100">
+                                                                        <ComboBoxItem Content="1305" />
+                                                                        <ComboBoxItem Content="1609" />
+                                                                        <ComboBoxItem Content="1726" />
+                                                                    </ComboBox>
+                                                                </StackPanel>
+                                                            </dxd:LayoutPanel.ControlBoxContent>
+                                                            <panels:Depth />
+                                                        </dxd:LayoutPanel>
+                                                    </dxd:LayoutGroup>
+                                                    <dxd:LayoutGroup Orientation="Horizontal">
+                                                        <dxd:LayoutPanel Caption="Selected Depth">
+                                                            <dxd:LayoutPanel.ControlBoxContent>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label Content="Instrument" />
+                                                                    <ComboBox Background="Transparent" IsEditable="True" Width="100">
+                                                                        <ComboBoxItem Content="1305" />
+                                                                        <ComboBoxItem Content="1609" />
+                                                                        <ComboBoxItem Content="1726" />
+                                                                    </ComboBox>
+                                                                </StackPanel>
+                                                            </dxd:LayoutPanel.ControlBoxContent>
+                                                            <panels:Depth />
+                                                        </dxd:LayoutPanel>
+                                                        <dxd:LayoutPanel Caption="Panel">
+                                                            <dxd:LayoutPanel.ControlBoxContent>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label Content="Instrument" />
+                                                                    <ComboBox Background="Transparent" IsEditable="True" Width="100">
+                                                                        <ComboBoxItem Content="1305" />
+                                                                        <ComboBoxItem Content="1609" />
+                                                                        <ComboBoxItem Content="1726" />
+                                                                    </ComboBox>
+                                                                </StackPanel>
+                                                            </dxd:LayoutPanel.ControlBoxContent>
+                                                            <panels:Depth />
+                                                        </dxd:LayoutPanel>
+                                                        <dxd:LayoutPanel Caption="Panel">
+                                                            <dxd:LayoutPanel.ControlBoxContent>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Label Content="Instrument" />
+                                                                    <ComboBox Background="Transparent" IsEditable="True" Width="100">
+                                                                        <ComboBoxItem Content="1305" />
+                                                                        <ComboBoxItem Content="1609" />
+                                                                        <ComboBoxItem Content="1726" />
+                                                                    </ComboBox>
+                                                                </StackPanel>
+                                                            </dxd:LayoutPanel.ControlBoxContent>
+                                                            <panels:Depth />
+                                                        </dxd:LayoutPanel>
+                                                    </dxd:LayoutGroup>
+                                                </dxd:LayoutGroup>
+                                            </dxd:LayoutGroup>
+                                        </dxd:DockLayoutManager.LayoutRoot>
+                                    </dxd:DockLayoutManager>
+
                                 </Grid>
                             </dxb:BarManager>
                         </dxd:DocumentPanel>

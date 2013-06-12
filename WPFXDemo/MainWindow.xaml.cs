@@ -70,7 +70,6 @@ namespace DXWPFApplication2
             
 
             ch9News.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe border:0px  width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/EyB145-Ip6c?autoplay=1\" frameborder=\"1\" allowfullscreen></iframe></body></html>");
-            
             yahooNews.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/7c9oMMp5OuI?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
             CNNNews.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/n35PNNxY-oU?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
         }
@@ -78,9 +77,9 @@ namespace DXWPFApplication2
         private void CreatePanelCommandExecuteBBG(object sender, ExecutedRoutedEventArgs e)
         {
             //layoutPanel2.Visibility = System.Windows.Visibility.Visible;
-            bbgPanelBrowser.NavigateToString("<html><body><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/CUS0ktfCYBI?autoplay=1&loop=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
+           // bbgPanelBrowser.NavigateToString("<html><body><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/CUS0ktfCYBI?autoplay=1&loop=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
 
-            ch9News.NavigateToString("<html><body><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/7c9oMMp5OuI?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
+           // ch9News.NavigateToString("<html><body><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/7c9oMMp5OuI?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
 
             
         }
