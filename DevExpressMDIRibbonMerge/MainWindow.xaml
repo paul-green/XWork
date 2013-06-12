@@ -82,11 +82,8 @@
             </dxr:RibbonControl>
             <dxd:DockLayoutManager x:Name="dockLayoutManager">
                 <dxd:LayoutGroup>
-                    <dxd:DocumentGroup x:Name="mdiContainer" MDIStyle="MDI" SelectedTabIndex="0">
+                    <dxd:DocumentGroup x:Name="mdiContainer" MDIStyle="Tabbed" SelectedTabIndex="1">
                         <dxd:DocumentPanel Caption="NavigationView" MDILocation="20,20" MDISize="300,300">
-                            <TextBox BorderThickness="0" />
-                        </dxd:DocumentPanel>
-                        <dxd:DocumentPanel Caption="MainView" MDILocation="50,50" MDISize="300,300">
                             <TextBox BorderThickness="0" />
                         </dxd:DocumentPanel>
                         <dxd:DocumentPanel Caption="DetailView" MDILocation="263,34" MDISize="792,494">
@@ -129,6 +126,9 @@
                             </dxb:BarManager>
                         </dxd:DocumentPanel>
                         <dxd:DocumentPanel Caption="Document" MDILocation="357,108" MDISize="343,281" />
+                        <dxd:DocumentPanel Caption="MainView" MDILocation="50,50" MDISize="300,300">
+                            <TextBox BorderThickness="0" />
+                        </dxd:DocumentPanel>
                     </dxd:DocumentGroup>
                 </dxd:LayoutGroup>
             </dxd:DockLayoutManager>

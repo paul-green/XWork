@@ -17,14 +17,13 @@
     xmlns:panels="clr-namespace:DXWPFApplication2.Panels"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     SnapsToDevicePixels="True" UseLayoutRounding="True"
-    Title="Xilix WPF" Height="700" Width="1100"
-    >
+    Title="Xilix WPF" Height="700" Width="1100" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges">
     <dxr:DXRibbonWindow.Resources>
 
     </dxr:DXRibbonWindow.Resources>
     <dxr:DXRibbonWindow.CommandBindings>
         <CommandBinding Command="Open" Executed="CreatePanelCommandExecute" CanExecute="CanExecuteCreatePanelCommand"/>
-        <CommandBinding Command="New" Executed="CreatePanelCommandExecuteBBG" CanExecute="CanExecuteCreatePanelCommandBBG"/>        
+        <CommandBinding Command="New" Executed="CreatePanelCommandExecuteBBG" CanExecute="CanExecuteCreatePanelCommandBBG"/>
         <!--ThemeManager.ThemeName="DeepBlue" -->
 
     </dxr:DXRibbonWindow.CommandBindings>
@@ -38,7 +37,7 @@
             <dxb:BarButtonItem x:Name="bNewTopWindow" Content="New Top Window" Glyph="Images/Icons/Group.png" LargeGlyph="Images/Icons/Group.png" />
             <dxb:BarButtonItem x:Name="bNewPanel" Content="New Panel" Glyph="Images/Icons/new-16x16.png" LargeGlyph="Images/Icons/New-32x32.png" />
             <dxb:BarButtonItem x:Name="bPrint" Content="Print" Glyph="Images/Icons/print-16x16.png" LargeGlyph="Images/Icons/print-32x32.png" />
-            <dxb:BarButtonItem x:Name="bAdvices" Content="Advices" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
+            <dxb:BarButtonItem x:Name="bWorkspace_News" Content="News Feeds" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/2.png" LargeGlyph="Images/Icons/Item.png" />
             <dxb:BarButtonItem x:Name="bClientView" Content="Client View" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
             <dxb:BarButtonItem x:Name="bDiscretions" Content="Discretion View" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
 
@@ -47,7 +46,7 @@
             <dxb:BarButtonItem x:Name="panelOrders" Content="Orders" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
             <dxb:BarButtonItem x:Name="panelBaskets" Content="Baskets" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
             <dxb:BarButtonItem x:Name="morePanels" Content="More..." Glyph="/DXWPFApplication2;component/Images/Icons/Group.png" LargeGlyph="Images/Icons/Item.png" />
-            <dxb:BarButtonItem x:Name="panelBBGNews" Content="BBG News" Glyph="/DXWPFApplication2;component/Images/Icons/bbg.jpg" LargeGlyph="Images/Icons/Item.png"  Command="New" />            
+            <dxb:BarButtonItem x:Name="panelBBGNews" Content="BBG News" Glyph="/DXWPFApplication2;component/Images/Icons/bbg.jpg" LargeGlyph="Images/Icons/Item.png"  Command="New" />
 
             <dxb:BarButtonItem x:Name="arrangeHorizontal" Content="Horizontal" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
             <dxb:BarButtonItem x:Name="arrangeVertical" Content="Vertical" Glyph="Images/Icons/Item.png" LargeGlyph="Images/Icons/Item.png" />
@@ -96,7 +95,7 @@
                         <dxb:BarButtonItemLink BarItemName="panelInbox"/>
                         <dxb:BarButtonItemLink BarItemName="panelDiscretions"/>
                         <dxb:BarButtonItemLink BarItemName="panelOrders"/>
-                        <dxb:BarButtonItemLink BarItemName="panelBBGNews"/>                        
+                        <dxb:BarButtonItemLink BarItemName="panelBBGNews"/>
                         <dxb:BarButtonItemLink BarItemName="morePanels"/>
                     </dxb:PopupMenu>
                 </dxb:BarSplitButtonItem.PopupControl>
@@ -142,8 +141,8 @@
                         <dxr:ApplicationMenu.BottomPane>
                             <StackPanel Orientation="Horizontal">
                                 <Button Content="New Xilix" Command="New" />
-                               
-                                
+
+
                             </StackPanel>
                         </dxr:ApplicationMenu.BottomPane>
                     </dxr:ApplicationMenu>
@@ -186,7 +185,7 @@
                     <dxr:RibbonPage Name="RibbonViews" Caption="View">
                         <dxr:RibbonPageGroup Caption="Views" Name="OpenViews">
                             <dxb:BarSplitButtonItemLink BarItemName="workspacesDropDown">
-                                
+
                             </dxb:BarSplitButtonItemLink>
                             <dxb:BarSplitButtonItemLink BarItemName="viewPanels" />
                             <dxb:BarButtonItemLink BarItemName="barButtonItem3" />
@@ -222,25 +221,240 @@
             </dxr:RibbonControl>
             <dxr:RibbonStatusBarControl Name="ribbonStatusBarControl1" DockPanel.Dock="Bottom" />
 
-            <dxd:DockLayoutManager x:Name="dockLayoutManager"  FloatingMode="Desktop" Visibility="Visible">
-                <dxd:DockLayoutManager.LayoutRoot>
-                    <dxd:LayoutGroup>
-                        <dxd:LayoutGroup Orientation="Vertical">
-                            <dxd:LayoutGroup Orientation="Horizontal">
-                                <dxd:LayoutPanel Caption="Baskets" Name="layoutPanel1" />
-                            </dxd:LayoutGroup>
-                            <dxd:LayoutPanel Caption="Bloomberg News" Name="layoutPanel2" Visibility="Hidden">
-                                <WebBrowser Name="bbgPanelBrowser" SnapsToDevicePixels="False" ClipToBounds="False" />
-                            </dxd:LayoutPanel>
-                        </dxd:LayoutGroup>
-                        <dxd:LayoutPanel Caption="1352 HOSUI" Name="layoutPanel3">
-                            <StackPanel>
-                                <panels:Depth/>
-                                <Image Source="/DXWPFApplication2;component/Images/Icons/charts.gif" Stretch="UniformToFill" />
-                            </StackPanel>
-                        </dxd:LayoutPanel>
-                    </dxd:LayoutGroup>
-                </dxd:DockLayoutManager.LayoutRoot>
+            <dxd:DockLayoutManager x:Name="dockLayoutManager" FloatingMode="Desktop">
+
+                <dxd:LayoutGroup>
+                    <dxd:DocumentGroup x:Name="mdiContainer" MDIStyle="Tabbed" SelectedTabIndex="0">
+                        <dxd:DocumentPanel Caption="News Feeds" MDILocation="20,20" MDISize="300,300">
+
+                            <dxb:BarManager >
+                                <dxb:BarManager.Items>
+                                    <dxb:BarButtonItem x:Name="bCopy23" Content="Copy" Glyph="Images/Icons/copy-16x16.png" LargeGlyph="Images/Icons/copy-32x32.png" />
+                                    <dxb:BarButtonItem x:Name="bPaste24" Content="Paste" Glyph="Images/Icons/paste-16x16.png" LargeGlyph="Images/Icons/paste-32x32.png" />
+                                    <dxb:BarButtonItem Content="barButtonItem1552" Name="barButtonItem1112" />
+                                    <dxb:BarButtonItem Content="BBG" Name="barButtonItem8" Glyph="Images/Icons/bbg.jpg" />
+                                    <dxb:BarButtonItem Content="Channel 9" Name="ch9" Glyph="Images/Icons/ch9-16x16.jpg" />
+                                    <dxb:BarButtonItem Content="Yahoo!" Name="barButtonItem9" Glyph="Images/Icons/yahoo-16x16.jpg"/>
+                                    <dxb:BarButtonItem Content="CNN" Name="barButtonItem10" Glyph="Images/Icons/cnn-16x16.jpg" />
+                                    <dxb:BarButtonItem Content="Add..." Name="barButtonItem13" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/12.png" />
+                                    <dxb:BarButtonItem Content="Add..." Name="barButtonItem14" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/2.png" />
+                                </dxb:BarManager.Items>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <dxr:RibbonControl Name="ribbonControl23" Grid.Row="0">
+                                        <dxr:RibbonDefaultPageCategory Caption="defaultCategory" Name="ribbonDefa3ultPageCategory1">
+                                            <dxr:RibbonPage Caption="News" Name="ribbo54nPage12" >
+                                                <dxr:RibbonPageGroup Caption="You Tube" Name="ribbonPa435geGroup22" Glyph="Images/Icons/youtube-16x16.jpg" >
+                                                    <dxb:BarButtonItemLink BarItemName="barButtonItem8" />
+                                                    <dxb:BarButtonItemLink BarItemName="ch9" />
+                                                    <dxb:BarButtonItemLink BarItemName="barButtonItem9" />
+                                                    <dxb:BarButtonItemLink BarItemName="barButtonItem10" />
+                                                    <dxb:BarButtonItemLink BarItemName="barButtonItem13" />
+                                                </dxr:RibbonPageGroup>
+                                                <dxr:RibbonPageGroup Caption="RSS Feeds" Name="ribbonPageGroup8" Glyph="Images/Icons/yahoo-16x16.jpg">
+                                                    <dxb:BarButtonItemLink BarItemName="barButtonItem14" />
+                                                </dxr:RibbonPageGroup>
+                                            </dxr:RibbonPage>
+                                            
+                                        </dxr:RibbonDefaultPageCategory>
+                                    </dxr:RibbonControl>
+                                    <dxd:DockLayoutManager Grid.Row="1" Name="dockLayo876utManager1">
+                                        <dxd:DockLayoutManager.LayoutRoot>
+                                            <dxd:LayoutGroup Caption="LayoutRoot">
+                                                <dxd:LayoutPanel Caption="CNN" CaptionImage="Images/Icons/cnn-16x16.jpg">
+                                                    <WebBrowser Name="CNNNews"  Width="Auto" Height="Auto" SnapsToDevicePixels="False" ClipToBounds="False" />
+                                                </dxd:LayoutPanel>
+                                                <dxd:LayoutGroup Grid.Column="2" Orientation="Vertical">
+                                                    <dxd:LayoutPanel Caption="CH9 News" CaptionImage="Images/Icons/ch9-16x16.jpg">
+                                                        <WebBrowser Name="ch9News" SnapsToDevicePixels="False" ClipToBounds="False" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" />
+
+                                                    </dxd:LayoutPanel>
+                                                    <dxd:LayoutPanel Caption="Yahoo! News" CaptionImage="Images/Icons/yahoo-16x16.jpg">
+                                                        <WebBrowser Name="yahooNews" SnapsToDevicePixels="False" ClipToBounds="False">
+                                                            
+                                                        </WebBrowser>
+                                                    </dxd:LayoutPanel>
+                                                </dxd:LayoutGroup>
+                                            </dxd:LayoutGroup>
+                                        </dxd:DockLayoutManager.LayoutRoot>
+                                    </dxd:DockLayoutManager>
+                                </Grid>
+                            </dxb:BarManager>
+                        </dxd:DocumentPanel>
+                        <!--
+                        <dxd:DocumentPanel Caption="Reporting" MDILocation="50,50" MDISize="300,300">
+                            <dxb:BarManager>
+                                <dxb:BarManager.Items>
+                                </dxb:BarManager.Items>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <dxr:RibbonControl Name="ribbon_market" Grid.Row="0">
+                                        <dxr:RibbonDefaultPageCategory Caption="defaultCategory" Name="ribbonpage_rpeorting">
+                                            <dxr:RibbonPage Caption="Reporting" Name="reports">
+                                                <dxr:RibbonPageGroup Caption="Reports" Name="Reports">
+                                                </dxr:RibbonPageGroup>
+
+                                                <dxr:RibbonPageGroup Caption="Charts" Name="ribbonPageGroup22dsdd">
+                                                </dxr:RibbonPageGroup>
+                                                <dxr:RibbonPageGroup Caption="Graphs" Name="graphs">
+                                                </dxr:RibbonPageGroup>
+                                            </dxr:RibbonPage>
+                                        </dxr:RibbonDefaultPageCategory>
+                                    </dxr:RibbonControl>
+                                    <dxd:DockLayoutManager Grid.Row="1" Name="reporting_docker">
+                                        <dxd:DockLayoutManager.LayoutRoot>
+                                            <dxd:LayoutGroup Caption="LayoutRoot">
+                                                <dxd:LayoutPanel Caption="A Chart">
+                                                    <dxc:ChartControl Name="chartControl1" Padding="2">
+                                                        <dxc:XYDiagram2D>
+                                                            <dxc:BarSideBySideSeries2D>
+                                                                <dxc:SeriesPoint Value="5" />
+                                                                <dxc:SeriesPoint Value="10" />
+                                                                <dxc:SeriesPoint Value="15" />
+                                                                <dxc:SeriesPoint Value="20" />
+                                                            </dxc:BarSideBySideSeries2D>
+                                                            <dxc:BarSideBySideSeries2D>
+                                                                <dxc:SeriesPoint Value="12" />
+                                                                <dxc:SeriesPoint Value="13" />
+                                                                <dxc:SeriesPoint Value="14" />
+                                                                <dxc:SeriesPoint Value="16" />
+                                                            </dxc:BarSideBySideSeries2D>
+                                                            <dxc:BarSideBySideSeries2D>
+                                                                <dxc:SeriesPoint />
+                                                                <dxc:SeriesPoint />
+                                                                <dxc:SeriesPoint Value="1" />
+                                                            </dxc:BarSideBySideSeries2D>
+                                                        </dxc:XYDiagram2D>
+                                                    </dxc:ChartControl>
+                                                </dxd:LayoutPanel>
+                                                <dxd:LayoutPanel Caption="3D Chart">
+                                                    <dxc:ChartControl Name="chartControl2" Padding="2" OverridesDefaultStyle="True">
+                                                        <dxc:XYDiagram3D>
+                                                            <dxc:BarSeries3D>
+                                                                <dxc:SeriesPoint Value="1" />
+                                                                <dxc:SeriesPoint Value="2" />
+                                                                <dxc:SeriesPoint Value="3" />
+                                                            </dxc:BarSeries3D>
+                                                            <dxc:BarSeries3D>
+                                                                <dxc:SeriesPoint Value="8" />
+                                                                <dxc:SeriesPoint Value="9" />
+                                                                <dxc:SeriesPoint Value="10" />
+                                                            </dxc:BarSeries3D>
+                                                            <dxc:BarSeries3D />
+                                                        </dxc:XYDiagram3D>
+                                                    </dxc:ChartControl>
+                                                </dxd:LayoutPanel>
+                                                <dxd:LayoutPanel Caption="Panel2"></dxd:LayoutPanel>
+                                            </dxd:LayoutGroup>
+                                        </dxd:DockLayoutManager.LayoutRoot>
+                                    </dxd:DockLayoutManager>
+                                </Grid>
+                            </dxb:BarManager>
+                        </dxd:DocumentPanel>
+                        -->
+                        <dxd:DocumentPanel Caption="Live Market" MDILocation="263,34" MDISize="792,494">
+                            <dxb:BarManager>
+                                <dxb:BarManager.Items>
+                                    <dxb:BarButtonItem x:Name="bCopy2" Content="Copy" Glyph="Images/Icons/copy-16x16.png" LargeGlyph="Images/Icons/copy-32x32.png" />
+                                    <dxb:BarButtonItem x:Name="bPaste2" Content="Paste" Glyph="Images/Icons/paste-16x16.png" LargeGlyph="Images/Icons/paste-32x32.png" />
+                                    <dxb:BarButtonItem Content="barButtonItem12" Name="barButtonItem12" />
+                                    <dxb:BarCheckItem Content="barCheckItem1" Name="barCheckItem1" />
+                                    <dxb:BarButtonItem Content="barButtonItem7" Name="barButtonItem7" />
+                                </dxb:BarManager.Items>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <dxr:RibbonControl Name="ribbonControl2" Grid.Row="0">
+                                        <dxr:RibbonDefaultPageCategory Caption="defaultCategory" Name="ribbonDefaultPageCategory1">
+                                            <dxr:RibbonPage Caption="Market" Name="ribbonPage12">
+                                                <dxr:RibbonPageGroup Caption="Ribbon Page Group 2" Name="ribbonPageGroup22">
+                                                    <dxb:BarCheckItemLink BarItemName="barCheckItem1" />
+                                                    <dxb:BarButtonItemLink BarItemName="barButtonItem7" />
+                                                </dxr:RibbonPageGroup>
+                                            </dxr:RibbonPage>
+                                            <dxr:RibbonPage Caption="Ribbon Page 2" Name="ribbonPage2">
+                                                <dxr:RibbonPageGroup Caption="Ribbon Page Group 1" Name="ribbonPageGroup13"></dxr:RibbonPageGroup>
+                                            </dxr:RibbonPage>
+                                        </dxr:RibbonDefaultPageCategory>
+                                    </dxr:RibbonControl>
+                                    <dxd:DockLayoutManager Grid.Row="1" Name="dockLayoutManager1">
+                                        <dxd:DockLayoutManager.LayoutRoot>
+                                            <dxd:LayoutGroup Caption="LayoutRoot">
+                                                <dxd:LayoutPanel Caption="Panel1">
+                                                    <WebBrowser Name="bbgPanelBrowser" SnapsToDevicePixels="False" ClipToBounds="False" />
+                                                </dxd:LayoutPanel>
+                                                <dxd:LayoutPanel Caption="Panel1">
+                                                    <panels:Depth/>
+                                                </dxd:LayoutPanel>
+                                                <dxd:LayoutPanel Caption="Panel2">
+                                                    <Image Source="/DXWPFApplication2;component/Images/Icons/charts.gif" Stretch="UniformToFill" />
+                                                </dxd:LayoutPanel>
+                                            </dxd:LayoutGroup>
+                                        </dxd:DockLayoutManager.LayoutRoot>
+                                    </dxd:DockLayoutManager>
+                                </Grid>
+                            </dxb:BarManager>
+                        </dxd:DocumentPanel>
+                        <dxd:DocumentPanel Caption="Client View" MDILocation="357,108" MDISize="343,281">
+                            <dxb:BarManager>
+                                <dxb:BarManager.Items>
+                                    <dxb:BarButtonItem Content="Accept" Name="barButtonItem11" Glyph="/DXWPFApplication2;component/Images/Icons/Blue/19.png" />
+                                </dxb:BarManager.Items>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <dxr:RibbonControl Name="ribbonControl45" Grid.Row="0">
+                                        <dxr:RibbonDefaultPageCategory Caption="defaultCategory" Name="ribbonDefaultPageCategory121">
+                                            <dxr:RibbonPage Caption="Client View" Name="ribbonPage1211">
+                                                <dxr:RibbonPageGroup Caption="Actions" Name="adsd">
+                                                    <dxb:BarButtonItemLink BarItemName="barButtonItem11" />
+                                                </dxr:RibbonPageGroup>
+                                                <dxr:RibbonPageGroup Caption="Filters" Name="dsds22">
+                                                </dxr:RibbonPageGroup>
+                                            </dxr:RibbonPage>
+                                        </dxr:RibbonDefaultPageCategory>
+                                    </dxr:RibbonControl>
+                                    <dxd:DockLayoutManager Grid.Row="1" Name="dockLayoutManager_ClientView">
+                                        <dxd:DockLayoutManager.LayoutRoot>
+                                            <dxd:LayoutGroup Caption="LayoutRoot">
+                                                <dxd:TabbedGroup SelectedTabIndex="0">
+                                                    <dxd:LayoutPanel Caption="Inbox">Grid goes here</dxd:LayoutPanel>
+                                                    <dxd:LayoutPanel Caption="Baskets">Grid goes here</dxd:LayoutPanel>
+                                                    <dxd:LayoutPanel Caption="Discretions">Grid goes here</dxd:LayoutPanel>
+                                                </dxd:TabbedGroup>
+                                                <dxd:LayoutPanel Caption="Selected Depth">
+                                                    <dxd:LayoutPanel.ControlBoxContent>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Label>Instrument</Label>
+                                                            <ComboBox Width="100" IsEditable="True" Background="Transparent">
+                                                                <ComboBoxItem>1305</ComboBoxItem>
+                                                                <ComboBoxItem>1609</ComboBoxItem>
+                                                                <ComboBoxItem>1726</ComboBoxItem>
+                                                            </ComboBox>
+                                                        </StackPanel>
+                                                    </dxd:LayoutPanel.ControlBoxContent>
+                                                    <panels:Depth />
+                                                </dxd:LayoutPanel>
+                                            </dxd:LayoutGroup>
+                                        </dxd:DockLayoutManager.LayoutRoot>
+                                    </dxd:DockLayoutManager>
+                                </Grid>
+                            </dxb:BarManager>
+                        </dxd:DocumentPanel>
+                    </dxd:DocumentGroup>
+
+                </dxd:LayoutGroup>
+
             </dxd:DockLayoutManager>
         </DockPanel>
     </dxb:BarManager>
