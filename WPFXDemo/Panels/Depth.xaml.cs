@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XilixShell.Panels
+namespace DXWPFApplication2.Panels
 {
     /// <summary>
     /// Interaction logic for Depth.xaml

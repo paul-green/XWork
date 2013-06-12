@@ -10,15 +10,14 @@ using DevExpress.Xpf.Ribbon;
 using System.Reflection;
 
 
-namespace XilixShell
+namespace DXWPFApplication2
 {
     class Bootstrapper : MefBootstrapper
     {
 
         protected override System.Windows.DependencyObject CreateShell()
         {
-            //return new MainWindow();
-            return new MainMergeWindow();
+            return new MainWindow();
         }
 
         protected override void InitializeShell()

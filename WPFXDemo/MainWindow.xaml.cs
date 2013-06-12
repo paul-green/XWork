@@ -24,10 +24,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 
 using DevExpress.Xpf.Editors;
-using XilixShell.Panels;
+using DXWPFApplication2.Panels;
 
 
-namespace XilixShell
+namespace DXWPFApplication2
 {
     public partial class MainWindow : DXRibbonWindow
     {

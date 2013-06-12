@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 
-namespace XilixShell
+namespace DXWPFApplication2
 {
     public static class NewTopWindowCommand
     {
