@@ -16,7 +16,7 @@ namespace Xilix.Module.Logging
     [ModuleExport(typeof(ModuleLogging))]
     public class ModuleLogging : IModule
     {
-
+        [ImportingConstructor]
         public ModuleLogging(IRegionManager regionManager)
         {
 
