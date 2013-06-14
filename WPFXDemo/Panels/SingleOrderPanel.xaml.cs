@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace WPFXilix.Panels
 {
     /// <summary>
-    /// Interaction logic for Depth.xaml
+    /// Interaction logic for SingleOrderPanel.xaml
     /// </summary>
-    public partial class Depth : UserControl
+    public partial class SingleOrderPanel : UserControl
     {
-        public Depth()
+        public SingleOrderPanel()
         {
             InitializeComponent();
         }

@@ -6,7 +6,7 @@ using DevExpress.Xpf.Ribbon;
 using Microsoft.Practices.Prism.Regions;
 using System.ComponentModel.Composition;
 
-namespace DXWPFApplication2.RegionAdapters
+namespace WPFXilix.RegionAdapters
 {
     [Export]
     public class DevExpressRibbonAdapter : RegionAdapterBase<RibbonControl>

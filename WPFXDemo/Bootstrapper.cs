@@ -5,12 +5,12 @@ using System.ComponentModel.Composition.Hosting;
 using Microsoft.Practices.ServiceLocation;
 using System.ComponentModel.Composition;
 using Microsoft.Practices.Prism.Regions;
-using DXWPFApplication2.RegionAdapters;
+using WPFXilix.RegionAdapters;
 using DevExpress.Xpf.Ribbon;
 using System.Reflection;
 
 
-namespace DXWPFApplication2
+namespace WPFXilix
 {
     class Bootstrapper : MefBootstrapper
     {

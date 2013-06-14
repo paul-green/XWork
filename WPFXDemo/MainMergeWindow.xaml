@@ -6,36 +6,27 @@
         xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors">
     
         <dxb:BarManager Name="barManager1" DockPanel.Dock="Top">
-            <DockPanel Name="dockPanel1">
+        <dxb:BarManager.Items>
+            <dxb:BarSplitButtonItem Content="barSplitButtonItem1" Name="barSplitButtonItem1">
+                <dxb:BarSplitButtonItem.PopupControl>
+                    <dxb:PopupControlContainer>
+                        <dxe:FontEdit Width="150" />
+                    </dxb:PopupControlContainer>
+                </dxb:BarSplitButtonItem.PopupControl>
+            </dxb:BarSplitButtonItem>
+        </dxb:BarManager.Items>
+        <DockPanel Name="dockPanel1">
                 <dxr:RibbonControl Name="ribbonControl1" DockPanel.Dock="Top">
                     <dxr:RibbonDefaultPageCategory Caption="defaultCategory" Name="ribbonDefaultPageCategory1">
                         <dxr:RibbonPage Caption="Home" Name="ribbonPage1">
-                            <dxr:RibbonPageGroup Caption="Tools" Name="ribbonPageGroup1" />
-                        </dxr:RibbonPage>
+                            <dxr:RibbonPageGroup Caption="Tools" Name="ribbonPageGroup1">
+                            <dxb:BarSplitButtonItemLink BarItemName="barSplitButtonItem1" />
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
                     </dxr:RibbonDefaultPageCategory>
                 </dxr:RibbonControl>
                 <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom" Name="ribbonStatusBarControl1"/>
-
-            <dxdo:DockLayoutManager Name="dockLayoutManager1">
-                <dxdo:DockLayoutManager.LayoutRoot>
-
-                    <dxdo:LayoutGroup Caption="LayoutRoot">
-                        <dxdo:LayoutGroup Orientation="Vertical">
-                            <dxdo:LayoutGroup>
-                                <dxdo:LayoutPanel Caption="Toolbox" Name="layoutPanel1" />
-                                <dxdo:DocumentGroup SelectedTabIndex="0" MDIStyle="MDI">
-                                    <dxdo:DocumentPanel Caption="Document2" Name="documentPanel2" MDILocation="11,20" MDISize="475.716666666667,280" />
-                                </dxdo:DocumentGroup>
-                            </dxdo:LayoutGroup>
-                            <dxdo:TabbedGroup>
-                                <dxdo:LayoutPanel Caption="Solution Explorer" Name="layoutPanel5" />
-                                <dxdo:LayoutPanel Caption="Properties" Name="layoutPanel6" />
-                            </dxdo:TabbedGroup>
-                        </dxdo:LayoutGroup>
-                        <dxdo:TabbedGroup SelectedTabIndex="0"></dxdo:TabbedGroup>
-                    </dxdo:LayoutGroup>
-                </dxdo:DockLayoutManager.LayoutRoot>
-            </dxdo:DockLayoutManager>
+            <dxe:FontEdit Width="150" />
         </DockPanel>
         </dxb:BarManager>        
        

@@ -24,10 +24,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 
 using DevExpress.Xpf.Editors;
-using DXWPFApplication2.Panels;
+using WPFXilix.Panels;
 
 
-namespace DXWPFApplication2
+namespace WPFXilix
 {
     public partial class MainWindow : DXRibbonWindow
     {
@@ -63,15 +63,18 @@ namespace DXWPFApplication2
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            themeComboBox.ItemsSource = Theme.Themes;
+             themeComboBox.ItemsSource = Theme.Themes;
             comboBoxEditSettings1.ItemsSource = Theme.Themes;
-            bbgPanelBrowser.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/CUS0ktfCYBI?autoplay=1&loop=1\" frameborder=\"1\" allowfullscreen></iframe></body></html>");
+            //bbgPanelBrowser.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/CUS0ktfCYBI?autoplay=1&loop=1\" frameborder=\"1\" allowfullscreen></iframe></body></html>");
+            //bbgPanelBrowser.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com\" frameborder=\"1\" allowfullscreen></iframe></body></html>");
+            //bbgPanelBrowser.Source = new Uri("http://www.youtube.com/embed/fAJFMv5yCDg");
+            bbgPanelBrowser.Navigate("http://www.whatversionismybrowser.com/");
             
             
 
-            ch9News.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe border:0px  width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/EyB145-Ip6c?autoplay=1\" frameborder=\"1\" allowfullscreen></iframe></body></html>");
-            yahooNews.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/7c9oMMp5OuI?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
-            CNNNews.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/n35PNNxY-oU?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
+            //ch9News.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe border:0px  width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/EyB145-Ip6c?autoplay=1\" frameborder=\"1\" allowfullscreen></iframe></body></html>");
+            //yahooNews.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/7c9oMMp5OuI?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
+            //CNNNews.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/n35PNNxY-oU?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>");
         }
 
         private void CreatePanelCommandExecuteBBG(object sender, ExecutedRoutedEventArgs e)
