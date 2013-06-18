@@ -23,5 +23,35 @@ namespace WPFXilix.Panels
         {
             InitializeComponent();
         }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            layoutControl1.IsCustomization = !layoutControl1.IsCustomization;
+        }
+
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void CommandBinding_Executed_1(object sender, ExecutedRoutedEventArgs e)
+        {
+            algoargs.Visibility = System.Windows.Visibility.Visible;
+            algochoice.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void CommandBinding_Executed_2(object sender, ExecutedRoutedEventArgs e)
+        {
+            algoargs.Visibility = System.Windows.Visibility.Collapsed;
+            algochoice.Visibility = System.Windows.Visibility.Collapsed;
+
+        }
+
+        private void CommandBinding_Executed_3(object sender, ExecutedRoutedEventArgs e)
+        {
+            algoargs.Visibility = System.Windows.Visibility.Collapsed;
+            algochoice.Visibility = System.Windows.Visibility.Collapsed;
+
+        }
     }
 }

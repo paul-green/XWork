@@ -5,25 +5,40 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:panels="clr-namespace:WPFXilix.Panels"
              mc:Ignorable="d" 
-             d:DesignHeight="389" d:DesignWidth="341" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core">
-
-    <dxb:BarManager Name="barManager1">
+             d:DesignHeight="389" d:DesignWidth="348" 
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" >
+    <UserControl.Resources>
+        <RoutedUICommand x:Key="AlgoCommand" Text="Algo"/>
+        <RoutedUICommand x:Key="DMACommand" Text="DMA"/>
+        <RoutedUICommand x:Key="ManualCommand" Text="Manual"/>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="Open" Executed="CommandBinding_Executed" CanExecute="CommandBinding_CanExecute"/>
+        <CommandBinding Command="{StaticResource AlgoCommand}"  Executed="CommandBinding_Executed_1"/>
+        <CommandBinding Command="{StaticResource DMACommand}"  Executed="CommandBinding_Executed_2"/>
+        <CommandBinding Command="{StaticResource ManualCommand}"  Executed="CommandBinding_Executed_3"/>
+    </UserControl.CommandBindings>
+    <dxb:BarManager Name="barManager1" MDIMergeStyle="Never">
         <dxb:BarManager.Items>
-            <dxb:BarButtonItem Name="barButtonItem1" BarItemDisplayMode="ContentAndGlyph" Glyph="/WPFXilix;component/Images/Icons/Blue/34.png" GlyphSize="Large" GlyphAlignment="Top">
+            <dxb:BarButtonItem Name="barButtonItem1" BarItemDisplayMode="ContentAndGlyph" Glyph="../Images/Icons/Blue/34.png" GlyphSize="Large" GlyphAlignment="Top">
                 <dxb:BarButtonItem.SuperTip>
                     <dx:SuperTip>
                         <dx:SuperTipHeaderItem Content="New"/>
                     </dx:SuperTip>
                 </dxb:BarButtonItem.SuperTip>
             </dxb:BarButtonItem>
-            <dxb:BarButtonItem Content="Buy" Name="btnBuySell" Glyph="/WPFXilix;component/Images/Icons/Blue/27.png" GlyphSize="Large" BarItemDisplayMode="ContentAndGlyph" GlyphAlignment="Top" Alignment="Default">
+            <dxb:BarButtonItem Name="btnBuySell" Glyph="../Images/Icons/Blue/27.png" GlyphSize="Large" BarItemDisplayMode="ContentAndGlyph" GlyphAlignment="Top" Alignment="Default">
                 <dxb:BarButtonItem.SuperTip>
                     <dx:SuperTip>
                         <dx:SuperTipHeaderItem Content="Buy"/>
                     </dx:SuperTip>
                 </dxb:BarButtonItem.SuperTip>
             </dxb:BarButtonItem>
-            <dxb:BarButtonItem Content="barButtonItem3" Name="barButtonItem3" Glyph="/WPFXilix;component/Images/Icons/Blue/13.png" GlyphSize="Large" GlyphAlignment="Top" />
+            <dxb:BarButtonItem Content="barButtonItem3" Name="barButtonItem3" Glyph="../Images/Icons/Blue/13.png" GlyphSize="Large" GlyphAlignment="Top" />
+            <dxb:BarButtonItem Name="settings" Glyph="../Images/Icons/Blue/24.png" GlyphSize="Large" GlyphAlignment="Top" Command="Open"/>
         </dxb:BarManager.Items>
         <dxb:BarManager.Bars>
             <dxb:Bar Caption="Main Menu" IsMainMenu="True" Name="mainMenuBar">
@@ -33,66 +48,76 @@
                 <dxb:BarButtonItemLink BarItemName="barButtonItem1" Alignment="Far"/>
                 <dxb:BarButtonItemLink BarItemName="btnBuySell" Alignment="Far" ToolTip="Send Buy Order" />
                 <dxb:BarButtonItemLink BarItemName="barButtonItem3" />
+                <dxb:BarButtonItemLink BarItemName="settings" />
+
             </dxb:Bar>
-
-
         </dxb:BarManager.Bars>
-        <StackPanel Name="grid1">
-            <Border CornerRadius="5" BorderThickness="2">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
-                        <GradientStop Color="Transparent" Offset="-0.3" />
-                        <GradientStop Color="#a3c3ec" Offset="0.1" />
-                        <GradientStop Color="#a3c3ec" Offset="0.9" />
-                        <GradientStop Color="Transparent" Offset="1.3" />
-                    </LinearGradientBrush>
-                </Border.Background>
-                <TextBlock Foreground="Black" Padding="6" FontWeight="Black" FontSize="14" TextAlignment="Center" >
-                    <Hyperlink Foreground="Black" >Mizuho Gold ETF</Hyperlink>
-                </TextBlock>
-            </Border>
-            <Expander Header="Depth"  Name="expander1" VerticalAlignment="Top" >
-                <panels:Depth/>
-            </Expander>
-            <Expander Header="Ticket" Name="expander2">
-
-            </Expander>
-            <dxlc:FlowLayoutControl Name="flowLayoutControl1" Orientation="Vertical" AllowItemMoving="True" StretchContent="True">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Code</TextBlock>
-                    <ComboBox>Code</ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Code</TextBlock>
-                    <ComboBox>Code</ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Code</TextBlock>
-                    <ComboBox>Code</ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Code</TextBlock>
-                    <ComboBox>Code</ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Code</TextBlock>
-                    <ComboBox>Code</ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Code</TextBlock>
-                    <ComboBox>Code</ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Code</TextBlock>
-                    <ComboBox>Code</ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Code</TextBlock>
-                    <ComboBox>Code</ComboBox>
-                </StackPanel>
-            </dxlc:FlowLayoutControl>
-
-        </StackPanel>
+        <dxlc:LayoutControl Margin="-10" Name="layoutControl1" AllowItemMovingDuringCustomization="True" IsCustomization="False" AllowItemRenamingDuringCustomization="True" AllowItemSizing="True" AllowItemSizingDuringCustomization="True" AllowNewItemsDuringCustomization="True">
+            <dxlc:LayoutControl.Header>
+                <Button Grid.Column="1" HorizontalAlignment="Right" Command="Open">
+                    <Image Source="../Images/Icons/Blue/24.png" Width="16" />
+                </Button>
+            </dxlc:LayoutControl.Header>
+            <dxlc:LayoutGroup Orientation="Vertical" View="GroupBox" IsCollapsible="True" IsCollapsed="False">
+                <dxlc:LayoutGroup.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0">Single Order</TextBlock>
+                    </Grid>
+                </dxlc:LayoutGroup.Header>
+                <dxlc:LayoutItem Label="{Binding Source={StaticResource dlang}, Path=[Instrument.Code], Mode=TwoWay}" Name="layoutItem6">
+                    <dxe:ComboBoxEdit Name="textEdit6" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="{Binding Source={StaticResource dlang}, Path=[Instrument.Fund]}">
+                    <dxe:ComboBoxEdit />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="{Binding Source={StaticResource dlang}, Path='[Instrument.Broker]'}">
+                    <dxe:ComboBoxEdit />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="{Binding Source={StaticResource dlang}, Path=[Instrument.Account], Mode=TwoWay}">
+                    <dxe:ComboBoxEdit />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="{Binding Source={StaticResource dlang}, Path=[Instrument.Quantity], Mode=TwoWay}">
+                    <dxe:SpinEdit />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="{Binding Source={StaticResource dlang}, Path=[Instrument.LimitPrice], Mode=TwoWay}">
+                    <dxe:SpinEdit />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="{Binding Source={StaticResource dlang}, Path=[Instrument.OrderType], Mode=TwoWay}">
+                    <dxe:ComboBoxEdit />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Algo">
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <RadioButton Padding="2" Content="DMA" VerticalAlignment="Bottom" Command="{StaticResource ResourceKey=DMACommand}"/>
+                        <RadioButton Padding="2" Content="Manual" VerticalAlignment="Bottom" Command="{StaticResource ResourceKey=ManualCommand}" />
+                        <RadioButton Padding="2" Content="Algo" VerticalAlignment="Bottom" Command="{StaticResource ResourceKey=AlgoCommand}" />
+                    </WrapPanel>
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup Orientation="Vertical">
+                <dxlc:LayoutGroup Name="algochoice" View="GroupBox" IsCollapsible="True" IsCollapsed="False" Header="Algo" Visibility="Collapsed">
+                    <dxlc:LayoutItem Label="Engine">
+                        <dxe:ComboBoxEdit />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Strategy">
+                        <dxe:ComboBoxEdit />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup Name="algoargs" View="GroupBox" IsCollapsible="True" IsCollapsed="False" Header="Algo Parameters" Orientation="Vertical" Visibility="Collapsed">
+                    <dxlc:LayoutItem Label="Max % Volume">
+                        <dxe:SpinEdit />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Order Duration">
+                        <dxe:ComboBoxEdit />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Indxex Price Offset">
+                        <dxe:SpinEdit />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
     </dxb:BarManager>
-
 </UserControl>

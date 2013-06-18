@@ -119,6 +119,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Language.cs" />
     <Compile Include="Panels\SingleOrderPanel.xaml.cs">
       <DependentUpon>SingleOrderPanel.xaml</DependentUpon>
     </Compile>
@@ -157,6 +158,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Xilix.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml">
@@ -298,9 +302,7 @@
   <ItemGroup>
     <Resource Include="Images\Icons\charts.gif" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Icons\ch9.jpg" />
   </ItemGroup>

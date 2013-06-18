@@ -61,10 +61,20 @@ namespace WPFXilix
     //        dockLayoutManager.DockController.Dock(new LayoutPanel() { Caption = "Eggs" });
         }
 
+        private List<string> languages = new List<string>(new string[] {"English", "Japanese"});
+        public List<string> Languages
+        {
+            get {return languages;}
+            set
+            {
+            }
+        }
+
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
              themeComboBox.ItemsSource = Theme.Themes;
             comboBoxEditSettings1.ItemsSource = Theme.Themes;
+            comboLangs.ItemsSource = Languages;
             //bbgPanelBrowser.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com/embed/CUS0ktfCYBI?autoplay=1&loop=1\" frameborder=\"1\" allowfullscreen></iframe></body></html>");
             //bbgPanelBrowser.NavigateToString("<html><body style=\"margin:0; padding:0\"><iframe width=\"100%\" height=\"100%\" src=\"http://www.youtube.com\" frameborder=\"1\" allowfullscreen></iframe></body></html>");
             //bbgPanelBrowser.Source = new Uri("http://www.youtube.com/embed/fAJFMv5yCDg");
@@ -170,7 +180,7 @@ namespace WPFXilix
             newpanel2.Caption = name;
             newpanel2.Name = name;
             newpanel2.Content = element;
-            dockLayoutManager.DockController.Dock(newpanel2);
+            mainLayoutManager.DockController.Dock(newpanel2);
         }
 
         private void themeComboBox_SelectedIndexChanged(object sender, RoutedEventArgs e)
@@ -187,13 +197,31 @@ namespace WPFXilix
         private void fontSize_EditValueChanged(object sender, RoutedEventArgs e)
         {
             decimal value = (decimal)((BarEditItem)sender).EditValue;
-            dockLayoutManager.FontSize = (double)value;
+            mainLayoutManager.FontSize = (double)value;
             //Application.Current.MainWindow.FontSize = (double)value;
         }
 
         private void barEditItem1_EditValueChanged(object sender, RoutedEventArgs e)
         {
-            dockLayoutManager.FontSize = (double)barEditItem1.EditValue;
+            mainLayoutManager.FontSize = (double)barEditItem1.EditValue;
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            BaseLayoutItem activeMDI = mainLayoutManager.ActiveMDIItem;
+            
+        }
+
+        private void comboLanguage_EditValueChanged(object sender, RoutedEventArgs e)
+        {
+            Language lang = (Language)Application.Current.FindResource("dlang");
+            BarEditItem langcombo = (BarEditItem)sender;
+            string lan  = (string)comboLanguage.EditValue;
+            if (lan == "Japanese")
+                lang.LanguageIndex = 2;
+            else
+                lang.LanguageIndex = 1;
+            
         }
 
     }
