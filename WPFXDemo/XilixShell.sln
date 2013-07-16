@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XilixShell", "XilixShell.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xilix.Module.Logging", "..\Xilix.Module.Logging\Xilix.Module.Logging.csproj", "{21326607-6D51-4E4D-B961-FE56A1A584B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RibbonMergeDemo", "..\DevExpressMDIRibbonMerge\RibbonMergeDemo.csproj", "{0267C1BF-6193-4277-90F5-27FBED0EF3B0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,16 +35,6 @@ Global
 		{21326607-6D51-4E4D-B961-FE56A1A584B2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{21326607-6D51-4E4D-B961-FE56A1A584B2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{21326607-6D51-4E4D-B961-FE56A1A584B2}.Release|x86.ActiveCfg = Release|Any CPU
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Debug|x86.ActiveCfg = Debug|x86
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Debug|x86.Build.0 = Debug|x86
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Release|Any CPU.ActiveCfg = Release|x86
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Release|Mixed Platforms.Build.0 = Release|x86
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Release|x86.ActiveCfg = Release|x86
-		{0267C1BF-6193-4277-90F5-27FBED0EF3B0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

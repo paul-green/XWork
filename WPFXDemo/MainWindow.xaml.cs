@@ -17,7 +17,7 @@ using DevExpress.Xpf.Layout.Core;
 using DevExpress.Xpf.Docking;
 using DevExpress.Xpf.Charts;
 using DevExpress.Xpf.NavBar;
-using DevExpress.Xpf.Grid;
+//using DevExpress.Xpf.Grid;
 using DevExpress.Xpf.Printing;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
@@ -33,7 +33,7 @@ namespace WPFXilix
     {
         public static RoutedCommand CustomRoutedCommand = new RoutedCommand();
         public static RoutedCommand CreatePanelCommand = new RoutedCommand();
-
+        IWorkspaceManager Manager;
 
 
         public MainWindow()
@@ -59,7 +59,19 @@ namespace WPFXilix
 //            dockLayoutManager.DockController.Dock(new LayoutPanel() { Caption = "Eggs" });
   //          dockLayoutManager.DockController.Dock(new LayoutPanel() { Caption = "Eggs" });
     //        dockLayoutManager.DockController.Dock(new LayoutPanel() { Caption = "Eggs" });
+            //Manager = WorkspaceManager.GetWorkspaceManager(barManager);
+            //Manager.TransitionEffect = TransitionEffect.Ripple;
+
         }
+
+        private List<string> workspaces = new List<string>();
+        public List<string> Workspaces
+        {
+            get { return workspaces; }
+        }
+
+
+
 
         private List<string> languages = new List<string>(new string[] {"English", "Japanese"});
         public List<string> Languages
@@ -222,6 +234,24 @@ namespace WPFXilix
             else
                 lang.LanguageIndex = 1;
             
+        }
+
+        private void redo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void BarButtonItemLink_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void BarButtonItemLink_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragDrop.DoDragDrop(redo, "SSS", DragDropEffects.Link);
+            }
         }
 
     }
